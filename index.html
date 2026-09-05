@@ -117,6 +117,25 @@ td.team a.host::after{content:"  host";font-size:.68rem;font-weight:600;color:va
 .tcard u{display:inline-block;margin-top:9px;font-size:.82rem;color:var(--navy);
          text-decoration:none;font-weight:600;border-bottom:2px solid var(--orange);padding-bottom:1px}
 
+/* ---------- tournament info ---------- */
+.info{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;margin-top:22px;align-items:start}
+.infomap{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:10px}
+.infomap img{width:100%;display:block;border-radius:2px}
+.infomap p{margin-top:9px;font-size:.78rem;color:var(--muted);line-height:1.45}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:4px}
+.facts div{padding:13px 17px;border-bottom:1px solid var(--line)}
+.facts div:last-of-type{border-bottom:0}
+.facts dt{font-size:.74rem;font-weight:600;color:var(--muted);margin-bottom:3px}
+.facts dd{margin:0;font-size:.93rem;line-height:1.45}
+.facts dd b{font-weight:600}
+.packet{
+  display:block;margin-top:14px;background:var(--orange);color:#fff;text-decoration:none;
+  padding:15px 18px;border-radius:4px;font-weight:600;font-size:.98rem;line-height:1.35;
+}
+.packet:hover,.packet:focus-visible{background:#cf5320}
+.packet span{display:block;font-weight:400;font-size:.82rem;color:#FFE2D4;margin-top:3px}
+@media (max-width:720px){.info{grid-template-columns:1fr}}
+
 /* ---------- leaders ---------- */
 .leaders{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px;margin-top:22px}
 .empty{
@@ -154,6 +173,7 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
     <a class="live" id="m-bracket" href="#">Bracket &amp; schedule</a>
     <a href="#standings">Standings</a>
     <a href="#teams">Teams</a>
+    <a href="#info">Tournament info</a>
     <a href="#leaders">Stat leaders</a>
   </nav>
 </header>
@@ -185,6 +205,51 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
       <p>Every team's GameChanger page. Scoring, lineups and live game feeds live there.</p>
     </div>
     <div class="teams" id="teamgrid"></div>
+  </div>
+</section>
+
+<section id="info">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Tournament info</h2>
+      <p>Everything in the coaches packet, plus the parking map. Please pass the parking notes on to your families.</p>
+    </div>
+    <div class="info">
+      <div class="infomap">
+        <img src="parking-map.png" alt="Aerial map of East End Park showing the main lot off Meadow St, the smaller Field 2 lot off Chestnut St, and the two fields.">
+        <p>Both lots are marked in orange. Enter off Meadow St. Overflow parking is on East O&rsquo;Hara St.</p>
+      </div>
+      <dl class="facts">
+        <div>
+          <dt>Where</dt>
+          <dd>East End Park, 51 Meadow St, McDonald, PA 15057. Two fields.</dd>
+        </div>
+        <div>
+          <dt>Parking</dt>
+          <dd>Two small lots, and both fill fast. Overflow is on <b>East O&rsquo;Hara St</b>, a short walk to the fields. Arrive early and keep driveways and outfield access lanes clear.</dd>
+        </div>
+        <div>
+          <dt>Rules</dt>
+          <dd><b>90 minutes, finish the inning.</b> Two umpires every game, pool and bracket.</dd>
+        </div>
+        <div>
+          <dt>Format</dt>
+          <dd>Pool play Friday evening and Saturday morning. Seeds post early Saturday afternoon and bracket play begins right after &mdash; plan to stay at the complex. Semifinals and the championship are Sunday.</dd>
+        </div>
+        <div>
+          <dt>On site</dt>
+          <dd>Porta johns and hand sanitizing stations all weekend. Concessions are run by the Fort Cherry Fastpitch Association.</dd>
+        </div>
+        <div>
+          <dt>Questions</dt>
+          <dd>Derek Rocco, Tournament Director. Text both teams&rsquo; final scores after every game.</dd>
+        </div>
+      </dl>
+    </div>
+    <a class="packet" href="coaches-packet.pdf">
+      Download the coaches packet (PDF)
+      <span>Location, parking map, rules, tie breakers and the 50/50 raffle link &mdash; two pages, print or forward as-is.</span>
+    </a>
   </div>
 </section>
 
