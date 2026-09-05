@@ -12,6 +12,8 @@ Live at **https://thedr21.github.io/KeystoneClash/**
 |---|---|
 | `index.html` | The whole page. No build step, no dependencies. |
 | `data.json` | Everything that changes during the weekend. |
+| `coaches-packet.pdf` | Two-page coaches packet: location, parking, rules, tie breakers. |
+| `parking-map.png` | Annotated aerial of East End Park, shown in the Tournament info tab. |
 
 `index.html` fetches `data.json` on load. If that fetch fails it falls back to an
 identical object inlined near the bottom of the HTML, so the page never renders
