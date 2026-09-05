@@ -7,12 +7,12 @@
   "bracketUrl": "https://tourneymachine.com/Public/Results/Division.aspx?IDTournament=h202607031619521870950ff4a05a84e&IDDivision=h20260703163616344456f126a2c3848",
   "divisions": [
     {
-      "name": "11U",
+      "name": "All teams",
       "note": "Pool play Friday and Saturday",
       "teams": [
         {
-          "name": "Outlaws 2033 Valore",
-          "gc": "https://web.gc.com/teams/quFlJ3qtjOh1",
+          "name": "All American Prady",
+          "gc": "https://web.gc.com/teams/SEiRB2dlKGav",
           "w": 0,
           "l": 0,
           "t": 0,
@@ -29,15 +29,6 @@
           "ra": 0
         },
         {
-          "name": "All American Prady",
-          "gc": "https://web.gc.com/teams/SEiRB2dlKGav",
-          "w": 0,
-          "l": 0,
-          "t": 0,
-          "rf": 0,
-          "ra": 0
-        },
-        {
           "name": "Lady Dukes WPA 2033",
           "gc": "https://web.gc.com/teams/Qgojbuf369Eu/2027-spring-lady-dukes-wpa-2033",
           "w": 0,
@@ -46,16 +37,10 @@
           "rf": 0,
           "ra": 0,
           "host": true
-        }
-      ]
-    },
-    {
-      "name": "12U",
-      "note": "Pool play Friday and Saturday",
-      "teams": [
+        },
         {
-          "name": "Pittsburgh Spirit Barber",
-          "gc": "https://web.gc.com/teams/HokaT0SguY8W/2027-spring-pittsburgh-spirit-12u-barber",
+          "name": "Outlaws 2033 Valore",
+          "gc": "https://web.gc.com/teams/quFlJ3qtjOh1",
           "w": 0,
           "l": 0,
           "t": 0,
@@ -63,8 +48,8 @@
           "ra": 0
         },
         {
-          "name": "Smash Fastpitch Shaffer",
-          "gc": "https://web.gc.com/teams/ixDuIf5R0bMq/2026-fall-smash-fastpitch-12u-shaffer",
+          "name": "Pittsburgh Passion",
+          "gc": "https://web.gc.com/teams/Lk2mlbKyLsGh",
           "w": 0,
           "l": 0,
           "t": 0,
@@ -81,8 +66,17 @@
           "ra": 0
         },
         {
-          "name": "Pittsburgh Passion",
-          "gc": "https://web.gc.com/teams/Lk2mlbKyLsGh",
+          "name": "Pittsburgh Spirit Barber",
+          "gc": "https://web.gc.com/teams/HokaT0SguY8W/2027-spring-pittsburgh-spirit-12u-barber",
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "rf": 0,
+          "ra": 0
+        },
+        {
+          "name": "Smash Fastpitch Shaffer",
+          "gc": "https://web.gc.com/teams/ixDuIf5R0bMq/2026-fall-smash-fastpitch-12u-shaffer",
           "w": 0,
           "l": 0,
           "t": 0,
