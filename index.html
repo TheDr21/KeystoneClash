@@ -192,7 +192,7 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
   <div class="wrap">
     <div class="shead">
       <h2>Standings</h2>
-      <p>Ranked by record, then fewest runs allowed, then run differential. Head-to-head is applied by the tournament director and may move teams from the order shown.</p>
+      <p>One standings table for the whole field. Ranked by record, then fewest runs allowed, then run differential. Head-to-head is applied by the tournament director and may move teams from the order shown.</p>
     </div>
     <div class="pools" id="pools"></div>
   </div>
@@ -290,23 +290,17 @@ const DATA = {
 
   divisions: [
     {
-      name: "11U",
+      name: "All teams",
       note: "Pool play Friday and Saturday",
       teams: [
-        { name: "Outlaws 2033 Valore",  gc: "https://web.gc.com/teams/quFlJ3qtjOh1", w:0, l:0, t:0, rf:0, ra:0 },
-        { name: "FP Select Barringer",  gc: "https://web.gc.com/teams/KLy7mcYt9g1D", w:0, l:0, t:0, rf:0, ra:0 },
-        { name: "All American Prady",   gc: "https://web.gc.com/teams/SEiRB2dlKGav", w:0, l:0, t:0, rf:0, ra:0 },
-        { name: "Lady Dukes WPA 2033",     gc: "https://web.gc.com/teams/Qgojbuf369Eu/2027-spring-lady-dukes-wpa-2033", w:0, l:0, t:0, rf:0, ra:0, host:true }
-      ]
-    },
-    {
-      name: "12U",
-      note: "Pool play Friday and Saturday",
-      teams: [
-        { name: "Pittsburgh Spirit Barber", gc: "https://web.gc.com/teams/HokaT0SguY8W/2027-spring-pittsburgh-spirit-12u-barber", w:0, l:0, t:0, rf:0, ra:0 },
-        { name: "Smash Fastpitch Shaffer",  gc: "https://web.gc.com/teams/ixDuIf5R0bMq/2026-fall-smash-fastpitch-12u-shaffer",     w:0, l:0, t:0, rf:0, ra:0 },
-        { name: "Pittsburgh Power Theys",   gc: "https://web.gc.com/teams/CDC5rQVXNCGN", w:0, l:0, t:0, rf:0, ra:0 },
-        { name: "Pittsburgh Passion",       gc: "https://web.gc.com/teams/Lk2mlbKyLsGh", w:0, l:0, t:0, rf:0, ra:0 }
+      { name: "All American Prady", gc: "https://web.gc.com/teams/SEiRB2dlKGav", w:0, l:0, t:0, rf:0, ra:0 },
+      { name: "FP Select Barringer", gc: "https://web.gc.com/teams/KLy7mcYt9g1D", w:0, l:0, t:0, rf:0, ra:0 },
+      { name: "Lady Dukes WPA 2033", gc: "https://web.gc.com/teams/Qgojbuf369Eu/2027-spring-lady-dukes-wpa-2033", w:0, l:0, t:0, rf:0, ra:0, host:true },
+      { name: "Outlaws 2033 Valore", gc: "https://web.gc.com/teams/quFlJ3qtjOh1", w:0, l:0, t:0, rf:0, ra:0 },
+      { name: "Pittsburgh Passion", gc: "https://web.gc.com/teams/Lk2mlbKyLsGh", w:0, l:0, t:0, rf:0, ra:0 },
+      { name: "Pittsburgh Power Theys", gc: "https://web.gc.com/teams/CDC5rQVXNCGN", w:0, l:0, t:0, rf:0, ra:0 },
+      { name: "Pittsburgh Spirit Barber", gc: "https://web.gc.com/teams/HokaT0SguY8W/2027-spring-pittsburgh-spirit-12u-barber", w:0, l:0, t:0, rf:0, ra:0 },
+      { name: "Smash Fastpitch Shaffer", gc: "https://web.gc.com/teams/ixDuIf5R0bMq/2026-fall-smash-fastpitch-12u-shaffer", w:0, l:0, t:0, rf:0, ra:0 }
       ]
     }
   ],
@@ -343,7 +337,6 @@ function renderStandings(d){
         <td class="rank">${any ? i+1 : '&ndash;'}</td>
         <td class="team">
           <a class="${t.host?'host':''}" href="${esc(t.gc)}" target="_blank" rel="noopener">${esc(t.name)}</a>
-          <small>${esc(div.name)}</small>
         </td>
         <td class="rec">${t.w||0}&ndash;${t.l||0}${t.t ? '&ndash;'+t.t : ''}</td>
         <td>${t.rf||0}</td>
@@ -363,7 +356,7 @@ function renderStandings(d){
             <tbody>${rows}</tbody>
           </table>
         </div>
-        ${any ? '' : '<p class="poolfoot">No games scored yet. Order below is alphabetical until Friday night.</p>'}
+        ${any ? '' : '<p class="poolfoot">No games scored yet. Order is alphabetical until Friday night.</p>'}
       </div>`;
   }).join('');
 }
@@ -373,7 +366,6 @@ function renderTeams(d){
     div.teams.map(t => `
       <a class="tcard ${t.host?'host':''}" href="${esc(t.gc)}" target="_blank" rel="noopener">
         <b>${esc(t.name)}</b>
-        <span>${esc(div.name)}</span>
         <u>Open on GameChanger</u>
       </a>`)
   ).join('');
