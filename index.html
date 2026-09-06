@@ -128,12 +128,26 @@ td.team a.host::after{content:"  host";font-size:.68rem;font-weight:600;color:va
 .facts dt{font-size:.74rem;font-weight:600;color:var(--muted);margin-bottom:3px}
 .facts dd{margin:0;font-size:.93rem;line-height:1.45}
 .facts dd b{font-weight:600}
+.actions{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;margin-top:22px;align-items:start}
 .packet{
-  display:block;margin-top:14px;background:var(--orange);color:#fff;text-decoration:none;
+  display:block;background:var(--navy);color:#fff;text-decoration:none;
   padding:15px 18px;border-radius:4px;font-weight:600;font-size:.98rem;line-height:1.35;
 }
-.packet:hover,.packet:focus-visible{background:#cf5320}
-.packet span{display:block;font-weight:400;font-size:.82rem;color:#FFE2D4;margin-top:3px}
+.packet:hover,.packet:focus-visible{background:#0F1E48}
+.packet span{display:block;font-weight:400;font-size:.82rem;color:#B9C6E6;margin-top:3px}
+.raffle{background:var(--card);border:2px solid var(--orange);border-radius:4px;padding:16px 18px}
+.raffle h3{font-size:1.1rem;margin-bottom:5px}
+.raffle p{font-size:.88rem;line-height:1.45;color:var(--muted)}
+.raffle p b{color:var(--ink);font-weight:600}
+.raffle .row{display:flex;gap:14px;align-items:center;margin-top:13px}
+.raffle img{width:96px;height:96px;flex:none;border:1px solid var(--line);border-radius:3px}
+.raffle ul{list-style:none;font-size:.83rem;line-height:1.5;color:var(--muted)}
+.raffle a.buy{
+  display:block;margin-top:13px;background:var(--orange);color:#fff;text-decoration:none;
+  text-align:center;padding:12px 14px;border-radius:4px;font-weight:600;font-size:.95rem;
+}
+.raffle a.buy:hover,.raffle a.buy:focus-visible{background:#cf5320}
+@media (max-width:720px){.actions{grid-template-columns:1fr}}
 @media (max-width:720px){.info{grid-template-columns:1fr}}
 
 /* ---------- leaders ---------- */
@@ -246,10 +260,25 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
         </div>
       </dl>
     </div>
-    <a class="packet" href="coaches-packet.pdf">
-      Download the coaches packet (PDF)
-      <span>Location, parking map, rules, tie breakers and the 50/50 raffle link &mdash; two pages, print or forward as-is.</span>
-    </a>
+    <div class="actions">
+      <a class="packet" href="coaches-packet.pdf">
+        Download the coaches packet (PDF)
+        <span>Location, parking map, rules and tie breakers &mdash; two pages, print it or forward it as-is.</span>
+      </a>
+      <div class="raffle">
+        <h3>50/50 raffle</h3>
+        <p>Win half the pot. The other half goes back into Lady Dukes Softball Club &mdash; umpires, fields, equipment, and keeping entry fees affordable. <b>The pot grows every time a ticket sells.</b></p>
+        <div class="row">
+          <img src="raffle-qr.png" alt="QR code linking to the Keystone Clash 50/50 raffle ticket page.">
+          <ul>
+            <li>Buy online, or from any volunteer on site</li>
+            <li>Drawing is Sunday</li>
+            <li>Winner does not need to be present</li>
+          </ul>
+        </div>
+        <a class="buy" href="https://www.zeffy.com/en-US/ticketing/lady-dukes-keystone-clash-tournament-raffle" target="_blank" rel="noopener">Buy raffle tickets</a>
+      </div>
+    </div>
   </div>
 </section>
 
