@@ -41,23 +41,55 @@ AMOUNT_KEYS = (
 )
 
 
+DEBUG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                     "raffle-debug.txt")
+_notes = []
+
+
+def note(msg):
+    print(msg)
+    _notes.append(str(msg))
+
+
+def flush_debug():
+    try:
+        with open(DEBUG, "w", encoding="utf-8") as f:
+            f.write("\n".join(_notes) + "\n")
+    except Exception:
+        pass
+
+
 def die(msg):
-    print(f"ERROR: {msg}", file=sys.stderr)
+    note(f"ERROR: {msg}")
+    flush_debug()
     sys.exit(1)
 
 
+AUTH_STYLE = os.environ.get("ZEFFY_AUTH_STYLE", "bearer").strip().lower()
+
+
+def auth_header():
+    if AUTH_STYLE == "raw":
+        return {"Authorization": KEY}
+    if AUTH_STYLE == "apikey":
+        return {"X-Api-Key": KEY}
+    return {"Authorization": f"Bearer {KEY}"}
+
+
 def get(path):
-    req = urllib.request.Request(
-        API + path,
-        headers={"Authorization": f"Bearer {KEY}",
-                 "Accept": "application/json"},
-    )
+    h = {"Accept": "application/json"}
+    h.update(auth_header())
+    req = urllib.request.Request(API + path, headers=h)
+    note(f"GET {API}{path}  (auth style: {AUTH_STYLE})")
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            return json.load(r)
+            body = r.read().decode("utf-8", "replace")
+            note(f"  {r.status}, {len(body)} bytes")
+            note("  body head: " + body[:900])
+            return json.loads(body)
     except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8", "replace")[:400]
-        die(f"{e.code} from {path}: {body}")
+        body = e.read().decode("utf-8", "replace")[:900]
+        die(f"HTTP {e.code} from {path}: {body}")
     except urllib.error.URLError as e:
         die(f"could not reach Zeffy: {e.reason}")
 
@@ -108,11 +140,11 @@ def pick_campaign():
     if not campaigns:
         die("no campaigns returned. Check the API key's organization.")
 
-    print(f"Found {len(campaigns)} campaign(s).")
+    note(f"Found {len(campaigns)} campaign(s).")
     for c in campaigns:
         cid = c.get("id") or c.get("campaignId") or "?"
         title = c.get("title") or c.get("name") or "(untitled)"
-        print(f"  {cid}  {title}")
+        note(f"  {cid}  {title}")
 
     if CAMPAIGN_ID:
         for c in campaigns:
@@ -136,9 +168,9 @@ def main():
 
     campaign = pick_campaign()
     title = campaign.get("title") or campaign.get("name") or "(untitled)"
-    print(f"\nUsing campaign: {title}")
-    print("Raw campaign payload (check the units on first run):")
-    print(json.dumps(campaign, indent=2)[:2000])
+    note(f"\nUsing campaign: {title}")
+    note("Raw campaign payload:")
+    note(json.dumps(campaign, indent=2)[:2500])
 
     hit = find_amount(campaign)
     if not hit:
@@ -149,8 +181,8 @@ def main():
     if IN_CENTS:
         raised = raised / 100.0
     raised = round(raised, 2)
-    print(f"\nRaised = {raised} (from field {key!r}, "
-          f"cents mode {'on' if IN_CENTS else 'off'})")
+    note(f"\nRaised = {raised} (from field {key!r}, "
+         f"cents mode {'on' if IN_CENTS else 'off'})")
 
     with open(DATA, encoding="utf-8") as f:
         data = json.load(f)
@@ -168,7 +200,8 @@ def main():
         json.dump(data, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
-    print(f"data.json written. Previous {prev}, now {raised}.")
+    note(f"data.json written. Previous {prev}, now {raised}.")
+    flush_debug()
 
 
 if __name__ == "__main__":
