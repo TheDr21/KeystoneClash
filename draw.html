@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keystone Clash 50/50 — Draw &amp; Verification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101C3D;--navy:#16295E;--orange:#E8632A;--page:#EEF1F7;--card:#fff;
+      --line:#D6DCE9;--muted:#6B7893}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--page);color:var(--ink);
+     font-size:16px;line-height:1.5;font-variant-numeric:tabular-nums}
+.wrap{max-width:780px;margin:0 auto;padding:0 20px}
+a{color:var(--navy)}
+
+.mast{background:var(--navy);color:#fff;padding:30px 0 26px}
+.mast h1{font-family:"Archivo Black",sans-serif;font-size:clamp(1.7rem,6vw,2.6rem);
+  line-height:1;text-transform:uppercase;letter-spacing:-.02em}
+.mast h1 em{font-style:normal;color:var(--orange)}
+.mast p{color:#B9C6E6;margin-top:9px;font-size:.95rem}
+.back{display:inline-block;margin-top:14px;color:#fff;font-size:.85rem;font-weight:600;
+  border-bottom:2px solid var(--orange);text-decoration:none;padding-bottom:1px}
+
+section{padding:30px 0}
+h2{font-size:1.3rem;margin-bottom:8px}
+p.lead{color:var(--muted);font-size:.93rem;max-width:62ch}
+
+.state{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--orange);
+  border-radius:4px;padding:18px 20px;margin-bottom:20px}
+.state .k{font-size:.72rem;letter-spacing:.16em;font-weight:600;color:var(--orange)}
+.state .v{font-family:"Archivo Black",sans-serif;font-size:1.5rem;margin-top:3px}
+.state p{font-size:.9rem;color:var(--muted);margin-top:6px}
+
+.winner{background:var(--ink);color:#fff;border-radius:4px;padding:26px 20px;text-align:center;margin-bottom:20px}
+.winner .k{font-size:.74rem;letter-spacing:.22em;color:var(--orange);font-weight:700}
+.winner .n{font-family:"Archivo Black",sans-serif;font-size:clamp(3rem,15vw,5.5rem);line-height:1;margin:6px 0}
+.winner .s{color:#B9C6E6;font-size:.95rem}
+
+dl.facts{background:var(--card);border:1px solid var(--line);border-radius:4px}
+dl.facts>div{padding:13px 18px;border-bottom:1px solid var(--line)}
+dl.facts>div:last-child{border-bottom:0}
+dt{font-size:.73rem;font-weight:600;color:var(--muted);margin-bottom:3px}
+dd{font-size:.92rem;word-break:break-all}
+code{font-family:ui-monospace,"SFMono-Regular",Menlo,monospace;font-size:.78rem;
+  background:#F2F5FA;padding:2px 5px;border-radius:3px}
+pre{background:var(--ink);color:#D7E0F5;padding:14px 16px;border-radius:4px;overflow-x:auto;
+  font-family:ui-monospace,Menlo,monospace;font-size:.76rem;line-height:1.6;margin-top:10px}
+
+ol.steps{margin:12px 0 0 20px;font-size:.93rem}
+ol.steps li{margin-bottom:9px}
+footer{background:var(--ink);color:#9FB0D8;padding:26px 0 34px;font-size:.85rem;line-height:1.7;margin-top:20px}
+footer b{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <h1>50/50 <em>Draw</em></h1>
+    <p>Keystone Clash, September 11&ndash;13, 2026 &mdash; Lady Dukes Softball Club</p>
+    <a class="back" href="./">Back to the tournament page</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap" id="state"></div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>How this draw works</h2>
+    <p class="lead">You should not have to take our word for who won. Two published
+    facts make the result checkable by anyone.</p>
+    <ol class="steps">
+      <li><b>The entry list is frozen before the draw.</b> When sales close we publish
+      <code>raffle-entries.json</code> &mdash; ticket numbers only, no names or emails &mdash;
+      and a SHA-256 fingerprint of it. Change one ticket afterward and the fingerprint
+      no longer matches.</li>
+      <li><b>The randomness comes from outside.</b> The winning number is derived from a
+      <a href="https://drand.love" target="_blank" rel="noopener">drand</a> beacon round
+      chosen <em>before</em> that round exists. drand is run by an independent group of
+      organizations, published on a fixed schedule, and identical for everyone. We
+      cannot pick it, predict it, or retry it.</li>
+      <li><b>The winner is arithmetic.</b> Winning ticket =
+      <code>SHA256(commitment + randomness) mod total + 1</code>. Same inputs, same
+      answer, every time, on anyone's computer.</li>
+    </ol>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Verify it yourself</h2>
+    <p class="lead">Clone the repository and run the checker. It re-fetches the beacon
+    from drand directly and recomputes the result.</p>
+    <pre>git clone https://github.com/TheDr21/KeystoneClash
+cd KeystoneClash
+python3 scripts/verify_draw.py</pre>
+    <p class="lead" style="margin-top:12px"><b>Find your own tickets:</b> your Zeffy
+    receipt shows a payment id. The <code>ref</code> in the entry list is the first 12
+    characters of its SHA-256, so you can locate your ticket range without your name
+    ever appearing on this page.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>Lady Dukes Softball Club</b> is a registered 501(c)(3). Half of every dollar goes
+    to the winner, half stays with the club.<br>
+    Questions: Derek Rocco, Artie Tortorice and Steve LaFever, Tournament Directors.
+  </div>
+</footer>
+
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const usd = n => Number(n).toLocaleString('en-US',
+  {style:'currency',currency:'USD',maximumFractionDigits:0});
+
+function when(iso){
+  if(!iso) return '';
+  const t = new Date(iso);
+  return t.toLocaleString('en-US',
+    {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
+}
+
+function row(k, v){ return `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`; }
+
+function paint(data){
+  const d = data.draw || {};
+  const pot = Number((data.raffle||{}).raised || 0);
+  const box = document.getElementById('state');
+
+  if(!d.status){
+    box.innerHTML = `
+      <div class="state">
+        <div class="k">SALES OPEN</div>
+        <div class="v">${pot > 0 ? usd(pot) + ' in the pot' : 'Tickets on sale'}</div>
+        <p>The entry list gets frozen and fingerprinted when sales close.
+           Check back here for the result and the verification details.</p>
+      </div>`;
+    return;
+  }
+
+  if(d.status === 'committed'){
+    box.innerHTML = `
+      <div class="state">
+        <div class="k">ENTRIES FROZEN &mdash; AWAITING THE DRAW</div>
+        <div class="v">${d.total_tickets} tickets</div>
+        <p>The entry list is locked and its fingerprint is published below. The draw
+           uses drand round ${d.beacon.round}, which is not generated yet.</p>
+      </div>
+      <dl class="facts">
+        ${row('Pot', pot > 0 ? usd(pot) + ' &mdash; winner takes ' + usd(Math.floor(pot/2)) : '&mdash;')}
+        ${row('Tickets', d.total_tickets + ' across ' + d.buyers + ' buyer(s)')}
+        ${row('Commitment (SHA-256)', '<code>' + esc(d.commitment) + '</code>')}
+        ${row('Frozen at', when(d.committed_at))}
+        ${row('Draw uses drand round', esc(d.beacon.round) + ' &mdash; expected ' + when(d.beacon.draw_at))}
+      </dl>`;
+    return;
+  }
+
+  box.innerHTML = `
+    <div class="winner">
+      <div class="k">WINNING TICKET</div>
+      <div class="n">#${esc(d.winning_ticket)}</div>
+      <div class="s">of ${d.total_tickets} tickets${pot > 0 ? ' &mdash; ' + usd(Math.floor(pot/2)) + ' payout' : ''}</div>
+    </div>
+    <dl class="facts">
+      ${row('Holder reference', '<code>' + esc(d.winning_ref || '—') + '</code>')}
+      ${row('Pot', pot > 0 ? usd(pot) : '—')}
+      ${row('Drawn at', when(d.drawn_at))}
+      ${row('Commitment (SHA-256)', '<code>' + esc(d.commitment) + '</code>')}
+      ${row('drand round', esc(d.beacon.round))}
+      ${row('drand randomness', '<code>' + esc(d.beacon.randomness || '—') + '</code>')}
+      ${row('Derived seed', '<code>' + esc(d.seed || '—') + '</code>')}
+    </dl>`;
+}
+
+fetch('data.json?t=' + Date.now(), {cache:'no-store'})
+  .then(r => r.json())
+  .then(paint)
+  .catch(() => {
+    document.getElementById('state').innerHTML =
+      '<div class="state"><div class="k">UNAVAILABLE</div>' +
+      '<div class="v">Could not load draw data</div>' +
+      '<p>Refresh in a moment.</p></div>';
+  });
+</script>
+</body>
+</html>
