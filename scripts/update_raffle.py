@@ -76,8 +76,12 @@ def auth_header():
     return {"Authorization": f"Bearer {KEY}"}
 
 
+UA = ("KeystoneClash-RaffleBot/1.0 "
+      "(+https://github.com/TheDr21/KeystoneClash)")
+
+
 def get(path):
-    h = {"Accept": "application/json"}
+    h = {"Accept": "application/json", "User-Agent": UA}
     h.update(auth_header())
     req = urllib.request.Request(API + path, headers=h)
     note(f"GET {API}{path}  (auth style: {AUTH_STYLE})")
