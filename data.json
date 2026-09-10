@@ -89,5 +89,10 @@
   "leaders": {
     "hitting": [],
     "pitching": []
+  },
+  "raffle": {
+    "raised": 0,
+    "updated": null,
+    "url": "https://www.zeffy.com/en-US/ticketing/lady-dukes-keystone-clash-tournament-raffle"
   }
 }
