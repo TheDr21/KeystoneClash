@@ -139,6 +139,12 @@ td.team a.host::after{content:"  host";font-size:.68rem;font-weight:600;color:va
 .raffle h3{font-size:1.1rem;margin-bottom:5px}
 .raffle p{font-size:.88rem;line-height:1.45;color:var(--muted)}
 .raffle p b{color:var(--ink);font-weight:600}
+.pot{background:var(--ink);color:#fff;border-radius:4px;padding:14px 16px;margin:12px 0 4px;text-align:center}
+.pot .lbl{font-size:.7rem;letter-spacing:.16em;font-weight:600;color:var(--orange)}
+.pot .num{font-family:"Archivo Black","Archivo",sans-serif;font-size:2.5rem;line-height:1.02;margin:4px 0 5px;letter-spacing:-.02em}
+.pot .sub{font-size:.83rem;color:#B9C6E6;line-height:1.5}
+.pot .sub b{color:#fff;font-weight:600}
+.pot time{display:block;font-size:.72rem;color:#7C8CB8;margin-top:5px}
 .raffle .row{display:flex;gap:14px;align-items:center;margin-top:13px}
 .raffle img{width:96px;height:96px;flex:none;border:1px solid var(--line);border-radius:3px}
 .raffle ul{list-style:none;font-size:.83rem;line-height:1.5;color:var(--muted)}
@@ -267,6 +273,11 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
       </a>
       <div class="raffle">
         <h3>50/50 raffle</h3>
+        <div class="pot" id="pot" hidden>
+          <div class="lbl">CURRENT POT</div>
+          <div class="num" id="pot-total"></div>
+          <div class="sub">Winner takes <b id="pot-half"></b><time id="pot-time"></time></div>
+        </div>
         <p>Win half the pot. The other half goes back into Lady Dukes Softball Club &mdash; umpires, fields, equipment, and keeping entry fees affordable. <b>The pot grows every time a ticket sells.</b></p>
         <div class="row">
           <img src="raffle-qr.png" alt="QR code linking to the Keystone Clash 50/50 raffle ticket page.">
@@ -433,6 +444,26 @@ function renderLeaders(d){
     ]);
 }
 
+function renderRaffle(d){
+  const box = el('pot');
+  const r = d.raffle || {};
+  const pot = Number(r.raised);
+  if(!(pot > 0)){ box.hidden = true; return; }   // hide until the first sale
+  const usd = n => n.toLocaleString('en-US',
+    { style:'currency', currency:'USD', maximumFractionDigits:0 });
+  el('pot-total').textContent = usd(pot);
+  el('pot-half').textContent  = usd(Math.floor(pot / 2));
+  const t = el('pot-time');
+  if(r.updated){
+    const when = new Date(r.updated);
+    t.textContent = 'as of ' + when.toLocaleTimeString('en-US',
+      { hour:'numeric', minute:'2-digit' }) + ' on ' +
+      when.toLocaleDateString('en-US', { month:'short', day:'numeric' });
+    t.setAttribute('datetime', r.updated);
+  } else { t.textContent = ''; }
+  box.hidden = false;
+}
+
 function render(d){
   el('m-dates').textContent   = d.dates;
   el('m-venue').textContent   = d.venue;
@@ -443,7 +474,7 @@ function render(d){
   el('m-updated').textContent = 'Updated ' + u.toLocaleDateString('en-US',
     { month:'short', day:'numeric', year:'numeric' });
   el('m-updated').setAttribute('datetime', d.updated);
-  renderStandings(d); renderTeams(d); renderLeaders(d);
+  renderStandings(d); renderTeams(d); renderLeaders(d); renderRaffle(d);
 }
 
 fetch('data.json', {cache:'no-store'})
