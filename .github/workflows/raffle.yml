@@ -32,16 +32,18 @@ jobs:
           ZEFFY_CAMPAIGN_MATCH: ${{ vars.ZEFFY_CAMPAIGN_MATCH }}
           ZEFFY_AMOUNT_IN_CENTS: ${{ vars.ZEFFY_AMOUNT_IN_CENTS }}
           ZEFFY_RAISED_FIELD: ${{ vars.ZEFFY_RAISED_FIELD }}
+        continue-on-error: true
         run: python scripts/update_raffle.py
 
       - name: Commit if the number moved
+        if: always()
         run: |
-          if git diff --quiet -- data.json; then
-            echo "Total unchanged, nothing to commit."
+          git add -A data.json raffle-debug.txt 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
             exit 0
           fi
           git config user.name "keystone-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json
           git commit -m "50/50 total update"
           git push
