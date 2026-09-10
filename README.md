@@ -17,6 +17,10 @@ Live at **https://thedr21.github.io/KeystoneClash/**
 | `raffle-qr.png` | QR for the 50/50 ticket page. |
 | `scripts/update_raffle.py` | Reads the 50/50 total from the Zeffy API. |
 | `.github/workflows/raffle.yml` | Runs that script every 30 minutes. |
+| `draw.html` | Public draw result and verification page. |
+| `scripts/draw_raffle.py` | Freezes the entry list, then draws the winner. |
+| `scripts/verify_draw.py` | Anyone can run this to check the result. |
+| `.github/workflows/draw.yml` | Manual only. Never runs on a timer. |
 
 `index.html` fetches `data.json` on load. If that fetch fails it falls back to an
 identical object inlined near the bottom of the HTML, so the page never renders
@@ -121,3 +125,54 @@ Scheduled runs are best-effort and often land late, which is why the page prints
 
 If in-person sales don't go through Zeffy, the number on the page will be low
 all weekend. Zeffy's Tap to Pay app keeps everything in one total.
+
+## Running the draw
+
+Two manual steps from Actions -> "50/50 draw". Never automated, never on a schedule.
+
+### 1. Close sales, then `commit`
+
+Run with `step: commit` and `draw_at` set to when you'll actually draw, ISO 8601
+**with a timezone offset**:
+
+    2026-09-13T18:00:00-04:00
+
+This pulls every succeeded, unrefunded payment, assigns ticket numbers in
+creation order, and writes:
+
+- `raffle-entries.json` — ticket numbers and a 12-character `ref` per buyer.
+  No names, no emails. The `ref` is `SHA256(zeffy_payment_id)[:12]`, so a buyer
+  can find their own tickets using the payment id on their receipt.
+- a `draw` block in `data.json` holding the SHA-256 commitment over that list
+  and the **future** drand round the draw will use.
+
+The script refuses a `draw_at` that maps to a round already produced. That
+refusal is the whole point: the randomness must not exist yet.
+
+**Sell nothing after this step.** Late sales won't be in the frozen list.
+
+### 2. At the appointed time, `draw`
+
+Run with `step: draw`. It re-hashes the published entry list and aborts if it
+no longer matches the commitment, fetches that drand round, and computes:
+
+    winning_ticket = SHA256(commitment + randomness) mod total_tickets + 1
+
+The workflow then runs `verify_draw.py` and only publishes if it passes.
+
+### Bundles
+
+If you add tiered pricing, set the repo variable `ZEFFY_RATE_ENTRIES` to a JSON
+map of Zeffy rate title to entries granted:
+
+    {"Ten chances of winning": 10, "Twenty-five chances": 25}
+
+Without it every ticket item counts as one entry.
+
+### Verifying
+
+    git clone https://github.com/TheDr21/KeystoneClash
+    cd KeystoneClash
+    python3 scripts/verify_draw.py
+
+No API key needed. It refetches the beacon from drand and recomputes the winner.
