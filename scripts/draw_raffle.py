@@ -44,8 +44,26 @@ CAMPAIGN_ID = os.environ.get("ZEFFY_CAMPAIGN_ID", "").strip()
 RATES = json.loads(os.environ.get("ZEFFY_RATE_ENTRIES", "{}"))
 
 
+# Diagnostics only — this script never prints payment or buyer data.
+_log = []
+
+
+def note(m):
+    print(m)
+    _log.append(str(m))
+
+
+def flush():
+    try:
+        with open(os.path.join(ROOT, "draw-debug.txt"), "w", encoding="utf-8") as f:
+            f.write("\n".join(_log) + "\n")
+    except Exception:
+        pass
+
+
 def die(msg):
-    print(f"ERROR: {msg}", file=sys.stderr)
+    note(f"ERROR: {msg}")
+    flush()
     sys.exit(1)
 
 
@@ -55,9 +73,14 @@ def get(url):
     )
     if url.startswith(ZEFFY):
         req.add_header("Authorization", f"Bearer {KEY}")
+    note(f"GET {url}")
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            return json.load(r)
+            body = r.read().decode("utf-8", "replace")
+            note(f"  {r.status}, {len(body)} bytes")
+            if "drand" in url:
+                note("  " + body[:400])
+            return json.loads(body)
     except urllib.error.HTTPError as e:
         die(f"HTTP {e.code} from {url}: {e.read().decode('utf-8','replace')[:300]}")
     except urllib.error.URLError as e:
@@ -222,6 +245,7 @@ def cmd_commit(args):
     }
     save(DATA, data)
 
+    flush()
     print(f"Committed {total} tickets across {len(payments)} buyer(s).")
     print(f"  commitment  {digest}")
     print(f"  drand round {target}  (available {draw_at.isoformat()})")
