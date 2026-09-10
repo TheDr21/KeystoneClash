@@ -41,7 +41,7 @@ CAMPAIGN_ID = os.environ.get("ZEFFY_CAMPAIGN_ID", "").strip()
 
 # Bundles: map a Zeffy rate title to how many entries it grants.
 # "$50 for 10 entries" -> {"Ten chances of winning": 10}
-RATES = json.loads(os.environ.get("ZEFFY_RATE_ENTRIES", "{}"))
+RATES = json.loads(os.environ.get("ZEFFY_RATE_ENTRIES") or "{}")
 
 
 # Diagnostics only — this script never prints payment or buyer data.
