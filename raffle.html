@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Keystone Clash 50/50 — Current Pot</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{ --navy:#14295E; --ink:#0C1733; --orange:#E8632A; --dim:#8DA0CE; }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Archivo",system-ui,sans-serif;
+  background:var(--ink); color:#fff;
+  min-height:100dvh; display:flex; flex-direction:column;
+  padding:max(2vmin,14px) max(3vmin,16px);
+  overflow:hidden; -webkit-font-smoothing:antialiased;
+}
+
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand{font-family:"Archivo Black",sans-serif;font-size:clamp(1rem,2.6vmin,1.9rem);
+  letter-spacing:.04em;text-transform:uppercase}
+.brand em{font-style:normal;color:var(--orange)}
+.tag{font-size:clamp(.7rem,1.5vmin,1.05rem);color:var(--dim);letter-spacing:.18em;font-weight:600}
+
+main{flex:1;display:flex;gap:4vmin;align-items:center;justify-content:center;min-height:0}
+
+.potwrap{flex:1 1 60%;text-align:center;min-width:0}
+.lbl{font-size:clamp(.75rem,1.9vmin,1.4rem);letter-spacing:.3em;color:var(--orange);
+  font-weight:700;margin-bottom:1vmin}
+#total{
+  font-family:"Archivo Black",sans-serif;
+  font-size:clamp(4rem,20vmin,17rem); line-height:.9; letter-spacing:-.035em;
+  transition:transform .5s ease;
+}
+#total.bump{transform:scale(1.06)}
+.takes{margin-top:2.2vmin;font-size:clamp(1rem,3.4vmin,2.6rem);color:#fff;line-height:1.25}
+.takes b{color:var(--orange);font-family:"Archivo Black",sans-serif}
+.stamp{margin-top:1.6vmin;font-size:clamp(.7rem,1.5vmin,1.05rem);color:var(--dim)}
+
+.qr{flex:0 0 auto;text-align:center}
+.qr img{
+  width:clamp(140px,26vmin,340px);height:clamp(140px,26vmin,340px);
+  background:#fff;padding:1.4vmin;border-radius:10px;display:block;
+}
+.qr .cta{margin-top:1.4vmin;font-family:"Archivo Black",sans-serif;
+  font-size:clamp(.85rem,2.1vmin,1.6rem);letter-spacing:.05em}
+.qr .sub{font-size:clamp(.68rem,1.4vmin,1rem);color:var(--dim);margin-top:.5vmin;line-height:1.4}
+
+footer{text-align:center;font-size:clamp(.68rem,1.5vmin,1.05rem);color:var(--dim);
+  border-top:3px solid var(--orange);padding-top:1.6vmin;line-height:1.5}
+footer b{color:#fff}
+
+.empty #total{font-size:clamp(2rem,9vmin,7rem);color:var(--dim)}
+.empty .takes,.empty .stamp{display:none}
+
+@media (orientation:portrait), (max-width:760px){
+  main{flex-direction:column;gap:3vmin}
+  .potwrap{flex:0 0 auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Keystone <em>Clash</em></div>
+  <div class="tag">50/50 RAFFLE</div>
+</header>
+
+<main>
+  <div class="potwrap">
+    <div class="lbl">CURRENT POT</div>
+    <div id="total">&mdash;</div>
+    <div class="takes">Winner takes <b id="half">&mdash;</b></div>
+    <div class="stamp" id="stamp"></div>
+  </div>
+
+  <div class="qr">
+    <img src="raffle-qr.png" alt="QR code to buy 50/50 raffle tickets">
+    <div class="cta">SCAN TO BUY</div>
+    <div class="sub">Or ask any volunteer<br>Card &amp; Apple Pay accepted</div>
+  </div>
+</main>
+
+<footer>
+  Half the pot goes home with the winner. The other half supports
+  <b>Lady Dukes Softball Club</b>, a registered 501(c)(3).<br>
+  Drawing Sunday. Winner need not be present.
+</footer>
+
+<script>
+const usd = n => n.toLocaleString('en-US',
+  { style:'currency', currency:'USD', maximumFractionDigits:0 });
+
+let last = null;
+
+function paint(r){
+  const pot   = Number(r && r.raised);
+  const total = document.getElementById('total');
+  const stamp = document.getElementById('stamp');
+
+  if(!(pot > 0)){
+    document.body.classList.add('empty');
+    total.textContent = 'Be the first';
+    return;
+  }
+  document.body.classList.remove('empty');
+  total.textContent = usd(pot);
+  document.getElementById('half').textContent = usd(Math.floor(pot / 2));
+
+  if(r.updated){
+    const t = new Date(r.updated);
+    stamp.textContent = 'as of ' + t.toLocaleTimeString('en-US',
+      { hour:'numeric', minute:'2-digit' });
+  }
+  if(last !== null && pot !== last){        // brief pulse when the pot grows
+    total.classList.add('bump');
+    setTimeout(() => total.classList.remove('bump'), 600);
+  }
+  last = pot;
+}
+
+async function refresh(){
+  try{
+    // cache-buster: GitHub Pages will happily serve a stale data.json otherwise
+    const res = await fetch('data.json?t=' + Date.now(), { cache:'no-store' });
+    if(!res.ok) return;
+    paint((await res.json()).raffle);
+  }catch(e){ /* keep the last good number on screen */ }
+}
+
+refresh();
+setInterval(refresh, 60000);
+
+// keep the screen awake on tablets that allow it
+if('wakeLock' in navigator){
+  const hold = () => navigator.wakeLock.request('screen').catch(() => {});
+  hold();
+  document.addEventListener('visibilitychange', () => {
+    if(document.visibilityState === 'visible') hold();
+  });
+}
+</script>
+</body>
+</html>
