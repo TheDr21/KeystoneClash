@@ -100,11 +100,11 @@
     "buyers": 2,
     "total_tickets": 2,
     "commitment": "d1d88ecd3d159de9c987fe4a19774723a4f4290bf2613d96aeabd03f20ca969e",
-    "committed_at": "2026-09-10T16:06:56+00:00",
+    "committed_at": "2026-09-10T16:07:44+00:00",
     "beacon": {
       "chain": "8990e7a9aaed2ffed73dbd7092123d6f289930540d7651336225dc172e51b2ce",
-      "round": 6463526,
-      "draw_at": "2026-09-13T18:00:00-04:00"
+      "round": 6454187,
+      "draw_at": "2026-09-10T16:10:33+00:00"
     },
     "winning_ticket": null
   }
