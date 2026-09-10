@@ -49,8 +49,9 @@ jobs:
         run: python scripts/verify_draw.py
 
       - name: Publish
+        if: always()
         run: |
-          git add data.json raffle-entries.json draw-debug.txt 2>/dev/null || git add -A data.json
+          git add -A data.json raffle-entries.json draw-debug.txt || true
           if git diff --cached --quiet; then
             echo "Nothing changed."
             exit 0
