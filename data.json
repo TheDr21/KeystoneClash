@@ -96,7 +96,7 @@
     "url": "https://www.zeffy.com/en-US/ticketing/lady-dukes-keystone-clash-tournament-raffle"
   },
   "draw": {
-    "status": "committed",
+    "status": "drawn",
     "buyers": 2,
     "total_tickets": 2,
     "commitment": "d1d88ecd3d159de9c987fe4a19774723a4f4290bf2613d96aeabd03f20ca969e",
@@ -104,8 +104,12 @@
     "beacon": {
       "chain": "8990e7a9aaed2ffed73dbd7092123d6f289930540d7651336225dc172e51b2ce",
       "round": 6454187,
-      "draw_at": "2026-09-10T16:10:33+00:00"
+      "draw_at": "2026-09-10T16:10:33+00:00",
+      "randomness": "fbc053abb874b84e79ffc83485f472344fd23ec5fb807132d20c15573265dab6"
     },
-    "winning_ticket": null
+    "winning_ticket": 2,
+    "winning_ref": "a5e14908741e",
+    "seed": "faa8299823033702fd1c6bcf2e6ae2f576e6e9eea6d97424ae873e118fe5b16d",
+    "drawn_at": "2026-09-10T16:11:21+00:00"
   }
 }
