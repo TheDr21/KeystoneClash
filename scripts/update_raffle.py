@@ -176,6 +176,17 @@ def main():
     note("Raw campaign payload:")
     note(json.dumps(campaign, indent=2)[:2500])
 
+    # Cross-check against actual payments before trusting a campaign field.
+    try:
+        pay = get("/payments?limit=100")
+        note("\nPAYMENTS PROBE:")
+        rows = as_list(pay)
+        note(f"  {len(rows)} payment(s) returned")
+        for p in rows[:3]:
+            note("  " + json.dumps(p, indent=2)[:1200])
+    except SystemExit:
+        note("  payments probe failed (see error above)")
+
     hit = find_amount(campaign)
     if not hit:
         die("could not find a raised-amount field. Look at the payload above "
