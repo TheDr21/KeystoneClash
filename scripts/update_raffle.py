@@ -41,8 +41,6 @@ AMOUNT_KEYS = (
 )
 
 
-DEBUG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                     "raffle-debug.txt")
 _notes = []
 
 
@@ -52,11 +50,7 @@ def note(msg):
 
 
 def flush_debug():
-    try:
-        with open(DEBUG, "w", encoding="utf-8") as f:
-            f.write("\n".join(_notes) + "\n")
-    except Exception:
-        pass
+    pass
 
 
 def die(msg):
@@ -89,10 +83,10 @@ def get(path):
         with urllib.request.urlopen(req, timeout=30) as r:
             body = r.read().decode("utf-8", "replace")
             note(f"  {r.status}, {len(body)} bytes")
-            note("  body head: " + body[:900])
+
             return json.loads(body)
     except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8", "replace")[:900]
+        body = e.read().decode("utf-8", "replace")[:300]
         die(f"HTTP {e.code} from {path}: {body}")
     except urllib.error.URLError as e:
         die(f"could not reach Zeffy: {e.reason}")
@@ -166,6 +160,41 @@ def pick_campaign():
     die(f"{len(hits)} campaigns match {MATCH!r}. Set ZEFFY_CAMPAIGN_ID.")
 
 
+def sum_payments(campaign_id):
+    """Total succeeded payments for this campaign, net of refunds, in dollars.
+
+    Amounts come back in cents. Returns None if the endpoint is unusable so
+    the caller can fall back to the campaign's own total."""
+    total_cents = 0
+    counted = 0
+    after = None
+    for page in range(20):                       # hard stop; ~2000 payments
+        path = "/payments?limit=100" + (f"&starting_after={after}" if after else "")
+        try:
+            payload = get(path)
+        except SystemExit:
+            return None
+        rows = as_list(payload)
+        if not rows:
+            break
+        for p in rows:
+            if p.get("campaign_id") != campaign_id:
+                continue
+            if p.get("status") != "succeeded":
+                continue
+            amt = p.get("amount") or 0
+            for r in (p.get("refunds") or []):   # net out refunds
+                amt -= (r.get("amount") or 0)
+            if amt > 0:
+                total_cents += amt
+                counted += 1
+        after = rows[-1].get("id")
+        if not payload.get("has_more") if isinstance(payload, dict) else len(rows) < 100:
+            break
+    note(f"Summed {counted} succeeded payment(s) for this campaign.")
+    return total_cents / 100.0
+
+
 def main():
     if not KEY:
         die("ZEFFY_API_KEY is not set.")
@@ -173,31 +202,19 @@ def main():
     campaign = pick_campaign()
     title = campaign.get("title") or campaign.get("name") or "(untitled)"
     note(f"\nUsing campaign: {title}")
-    note("Raw campaign payload:")
-    note(json.dumps(campaign, indent=2)[:2500])
+    note(f"Campaign id {campaign.get('id')}, status {campaign.get('status')}.")
 
-    # Cross-check against actual payments before trusting a campaign field.
-    try:
-        pay = get("/payments?limit=100")
-        note("\nPAYMENTS PROBE:")
-        rows = as_list(pay)
-        note(f"  {len(rows)} payment(s) returned")
-        for p in rows[:3]:
-            note("  " + json.dumps(p, indent=2)[:1200])
-    except SystemExit:
-        note("  payments probe failed (see error above)")
-
-    hit = find_amount(campaign)
-    if not hit:
-        die("could not find a raised-amount field. Look at the payload above "
-            "and set ZEFFY_RAISED_FIELD to the right key name.")
-
-    raised, key = hit
-    if IN_CENTS:
+    raised = sum_payments(campaign.get("id"))
+    if raised is None:
+        hit = find_amount(campaign)
+        if not hit:
+            die("no payments and no campaign total field found.")
+        raised, key = hit
         raised = raised / 100.0
+        note(f"Fell back to campaign field {key!r}.")
+
     raised = round(raised, 2)
-    note(f"\nRaised = {raised} (from field {key!r}, "
-         f"cents mode {'on' if IN_CENTS else 'off'})")
+    note(f"Raised = ${raised:,.2f}")
 
     with open(DATA, encoding="utf-8") as f:
         data = json.load(f)
