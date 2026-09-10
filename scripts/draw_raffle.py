@@ -311,4 +311,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception:
+        import traceback
+        note("UNCAUGHT:\n" + traceback.format_exc())
+        flush()
+        raise
