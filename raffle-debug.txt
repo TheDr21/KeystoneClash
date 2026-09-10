@@ -41,4 +41,53 @@ Raw campaign payload:
   ],
   "metadata": {}
 }
+GET https://api.zeffy.com/api/v1/payments?limit=100  (auth style: bearer)
+  200, 1184 bytes
+  body head: {"object":"list","data":[{"id":"b4f81c15-e11d-4e63-82f8-cba8f7733379","object":"payment","created":1788622014,"amount":1000,"eligible_amount":0,"currency":"usd","status":"succeeded","type":"online","refund_status":"none","refunds":[],"dispute":null,"description":"Lady Dukes - Keystone Clash Tournament Raffle","contact":"8a8e4e6e-6ec4-4e56-aeb1-46caa0e22393","payment_method":{"type":"applePayOrGooglePay","brand":"mastercard","last4":"3658"},"buyer":{"email":"derekjrocco@gmail.com","first_name":"Derek","last_name":"Rocco","is_corporate":false,"company_name":null},"discount":null,"campaign_type":"ticketing","campaign_id":"0e68585e-e835-4068-892e-473eb54c8d38","campaign_category":"raffle","buyer_questions":[],"items":[{"id":"fdc9f589-e262-4548-843a-eb23c8364d98","object":"item","type":"ticket","amount":1000,"currency":"usd","recurrence_interval":null,"rate_id":"8fc18e93-7f90-4328-903e-86d76c
+
+PAYMENTS PROBE:
+  1 payment(s) returned
+  {
+  "id": "b4f81c15-e11d-4e63-82f8-cba8f7733379",
+  "object": "payment",
+  "created": 1788622014,
+  "amount": 1000,
+  "eligible_amount": 0,
+  "currency": "usd",
+  "status": "succeeded",
+  "type": "online",
+  "refund_status": "none",
+  "refunds": [],
+  "dispute": null,
+  "description": "Lady Dukes - Keystone Clash Tournament Raffle",
+  "contact": "8a8e4e6e-6ec4-4e56-aeb1-46caa0e22393",
+  "payment_method": {
+    "type": "applePayOrGooglePay",
+    "brand": "mastercard",
+    "last4": "3658"
+  },
+  "buyer": {
+    "email": "derekjrocco@gmail.com",
+    "first_name": "Derek",
+    "last_name": "Rocco",
+    "is_corporate": false,
+    "company_name": null
+  },
+  "discount": null,
+  "campaign_type": "ticketing",
+  "campaign_id": "0e68585e-e835-4068-892e-473eb54c8d38",
+  "campaign_category": "raffle",
+  "buyer_questions": [],
+  "items": [
+    {
+      "id": "fdc9f589-e262-4548-843a-eb23c8364d98",
+      "object": "item",
+      "type": "ticket",
+      "amount": 1000,
+      "currency": "usd",
+      "recurrence_interval": null,
+      "rate_id": "8fc18e93-7f90-4328-903e-86d76cf61387",
+      "rate_title": "One chance of winning",
+      "contact_id": "8a8e4e6e-6ec4-4e56-aeb1-46caa0e22393",
+      "quest
 ERROR: could not find a raised-amount field. Look at the payload above and set ZEFFY_RAISED_FIELD to the right key name.
