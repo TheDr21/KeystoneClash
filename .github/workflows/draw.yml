@@ -37,7 +37,6 @@ jobs:
           ZEFFY_CAMPAIGN_ID: ${{ vars.ZEFFY_CAMPAIGN_ID }}
           ZEFFY_CAMPAIGN_MATCH: ${{ vars.ZEFFY_CAMPAIGN_MATCH }}
           ZEFFY_RATE_ENTRIES: ${{ vars.ZEFFY_RATE_ENTRIES }}
-        continue-on-error: true
         run: python scripts/draw_raffle.py commit --draw-at "${{ inputs.draw_at }}"
 
       - name: Draw the winner
