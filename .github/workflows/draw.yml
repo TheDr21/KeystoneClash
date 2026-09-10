@@ -1,0 +1,60 @@
+name: 50/50 draw
+
+# Manual only. Nothing about the draw should ever fire on a timer.
+on:
+  workflow_dispatch:
+    inputs:
+      step:
+        description: "commit = freeze entries, draw = reveal the winner"
+        required: true
+        type: choice
+        options: [commit, draw]
+      draw_at:
+        description: "For commit only. When the draw happens, ISO 8601 with offset (e.g. 2026-09-13T18:00:00-04:00)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: raffle-draw
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Commit the entry list
+        if: inputs.step == 'commit'
+        env:
+          ZEFFY_API_KEY: ${{ secrets.ZEFFY_API_KEY }}
+          ZEFFY_CAMPAIGN_ID: ${{ vars.ZEFFY_CAMPAIGN_ID }}
+          ZEFFY_CAMPAIGN_MATCH: ${{ vars.ZEFFY_CAMPAIGN_MATCH }}
+          ZEFFY_RATE_ENTRIES: ${{ vars.ZEFFY_RATE_ENTRIES }}
+        run: python scripts/draw_raffle.py commit --draw-at "${{ inputs.draw_at }}"
+
+      - name: Draw the winner
+        if: inputs.step == 'draw'
+        run: python scripts/draw_raffle.py draw
+
+      - name: Verify before publishing
+        if: inputs.step == 'draw'
+        run: python scripts/verify_draw.py
+
+      - name: Publish
+        run: |
+          git add data.json raffle-entries.json
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name "keystone-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "50/50 draw: ${{ inputs.step }}"
+          git push
