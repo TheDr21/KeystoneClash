@@ -14,6 +14,9 @@ Live at **https://thedr21.github.io/KeystoneClash/**
 | `data.json` | Everything that changes during the weekend. |
 | `coaches-packet.pdf` | Two-page coaches packet: location, parking, rules, tie breakers. |
 | `parking-map.png` | Annotated aerial of East End Park, shown in the Tournament info tab. |
+| `raffle-qr.png` | QR for the 50/50 ticket page. |
+| `scripts/update_raffle.py` | Reads the 50/50 total from the Zeffy API. |
+| `.github/workflows/raffle.yml` | Runs that script every 30 minutes. |
 
 `index.html` fetches `data.json` on load. If that fetch fails it falls back to an
 identical object inlined near the bottom of the HTML, so the page never renders
@@ -72,3 +75,49 @@ Settings → Pages → Source: **Deploy from a branch** → `main` / `/ (root)`.
 
 Standings here are unofficial. The Tourney Machine bracket linked in the header
 is the official record. Player stats are compiled from scored GameChanger games.
+
+## 50/50 live total
+
+The pot on the Tournament info tab comes from `data.json`:
+
+```json
+"raffle": { "raised": 1487.50, "updated": "2026-09-12T18:41:00+00:00" }
+```
+
+`raised` is the full amount taken in. The page displays it as the pot and shows
+half of it as the payout. **When `raised` is 0 or missing the whole block is
+hidden**, so the card looks normal before the first ticket sells.
+
+### One-time setup
+
+1. In Zeffy: Settings → Integrations → generate an API key (read-only).
+2. In this repo: Settings → Secrets and variables → Actions → New repository
+   secret, named `ZEFFY_API_KEY`.
+3. Actions tab → "Update 50/50 total" → **Run workflow** to test it.
+
+Read the log of that first run. It prints every campaign with its id, then the
+full payload of the one it picked. Two things to confirm:
+
+- **It picked the right campaign.** It matches any title containing "raffle".
+  If you have more than one, set a repository *variable* `ZEFFY_CAMPAIGN_ID`.
+- **The units are dollars, not cents.** If the payload shows `148750` where you
+  expect `1487.50`, set the variable `ZEFFY_AMOUNT_IN_CENTS` to `1`.
+- If it grabs the wrong number entirely, set `ZEFFY_RAISED_FIELD` to the exact
+  key name from the payload.
+
+The API key lives only in GitHub Secrets. It is never in `data.json`, never in
+`index.html`, and never reaches a browser — the page is public, so a
+client-side call would publish the key.
+
+### During and after the weekend
+
+Each run commits only when the number actually moves, and every commit triggers
+a Pages rebuild. That's fine for a three-day event. **Turn the workflow off when
+the tournament ends** — Actions tab → "Update 50/50 total" → ⋯ → Disable
+workflow — or it keeps polling forever.
+
+Scheduled runs are best-effort and often land late, which is why the page prints
+"as of 3:41 PM" under the pot rather than implying it's live to the second.
+
+If in-person sales don't go through Zeffy, the number on the page will be low
+all weekend. Zeffy's Tap to Pay app keeps everything in one total.
