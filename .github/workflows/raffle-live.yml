@@ -1,0 +1,75 @@
+name: 50/50 live poller
+
+# Stopgap for tournament weekend. GitHub's cron throttles hard (we measured
+# 2-5 hour gaps on a */30 schedule), which is useless for a live board. This
+# job stays alive and polls Zeffy itself.
+#
+# Commits are rate-limited to one per 5 minutes so we don't trip the Pages
+# build limit. Worst-case staleness on the board is about 6 minutes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "How long to keep polling (max 340)"
+        required: false
+        default: "340"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: raffle-live
+  cancel-in-progress: true
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Poll Zeffy and publish
+        env:
+          ZEFFY_API_KEY: ${{ secrets.ZEFFY_API_KEY }}
+          ZEFFY_CAMPAIGN_ID: ${{ vars.ZEFFY_CAMPAIGN_ID }}
+          ZEFFY_CAMPAIGN_MATCH: ${{ vars.ZEFFY_CAMPAIGN_MATCH }}
+          ZEFFY_AMOUNT_IN_CENTS: ${{ vars.ZEFFY_AMOUNT_IN_CENTS }}
+          ZEFFY_RAISED_FIELD: ${{ vars.ZEFFY_RAISED_FIELD }}
+        run: |
+          git config user.name "keystone-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          MINUTES=${{ inputs.minutes }}
+          END=$(( $(date +%s) + MINUTES * 60 ))
+          LAST=0
+          PUSHED=0
+
+          while [ "$(date +%s)" -lt "$END" ]; do
+            # take any commit made elsewhere (Steve, the cron job, me) first
+            git pull --rebase --autostash origin main >/dev/null 2>&1 || true
+
+            python scripts/update_raffle.py >/dev/null 2>&1 || echo "poll failed, retrying"
+
+            if ! git diff --quiet -- data.json; then
+              NOW=$(date +%s)
+              if [ $(( NOW - LAST )) -ge 300 ]; then
+                git add data.json
+                if git commit -m "50/50 total update" >/dev/null 2>&1; then
+                  if git push >/dev/null 2>&1; then
+                    LAST=$NOW
+                    PUSHED=$(( PUSHED + 1 ))
+                    echo "pushed at $(date -u +%H:%M:%S) — $(python -c "import json;print(json.load(open('data.json'))['raffle']['raised'])")"
+                  else
+                    git reset --hard origin/main >/dev/null 2>&1 || true
+                  fi
+                fi
+              fi
+            fi
+            sleep 60
+          done
+
+          echo "Finished. $PUSHED push(es)."
