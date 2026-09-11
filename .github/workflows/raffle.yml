@@ -5,7 +5,7 @@ on:
     # Every 30 minutes. GitHub runs scheduled jobs on a best-effort basis and
     # they often land 5-20 minutes late under load, so treat this as "about
     # every half hour" rather than on the clock.
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
