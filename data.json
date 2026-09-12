@@ -8,7 +8,7 @@
   "divisions": [
     {
       "name": "All teams",
-      "note": "Pool play Friday and Saturday",
+      "note": "Pool play complete — final standings",
       "teams": [
         {
           "name": "All American Prady",
@@ -42,19 +42,19 @@
           "name": "Outlaws 2033 Valore",
           "gc": "https://web.gc.com/teams/quFlJ3qtjOh1",
           "w": 0,
-          "l": 1,
+          "l": 2,
           "t": 0,
-          "rf": 3,
-          "ra": 12
+          "rf": 6,
+          "ra": 26
         },
         {
           "name": "Pittsburgh Passion",
           "gc": "https://web.gc.com/teams/Lk2mlbKyLsGh",
-          "w": 1,
+          "w": 2,
           "l": 0,
           "t": 0,
-          "rf": 17,
-          "ra": 3
+          "rf": 31,
+          "ra": 6
         },
         {
           "name": "Pittsburgh Power Theys",
