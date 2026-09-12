@@ -42,10 +42,10 @@
           "name": "Outlaws 2033 Valore",
           "gc": "https://web.gc.com/teams/quFlJ3qtjOh1",
           "w": 0,
-          "l": 0,
+          "l": 1,
           "t": 0,
-          "rf": 0,
-          "ra": 0
+          "rf": 3,
+          "ra": 12
         },
         {
           "name": "Pittsburgh Passion",
@@ -77,11 +77,11 @@
         {
           "name": "Smash Fastpitch Shaffer",
           "gc": "https://web.gc.com/teams/ixDuIf5R0bMq/2026-fall-smash-fastpitch-12u-shaffer",
-          "w": 0,
+          "w": 1,
           "l": 0,
           "t": 0,
-          "rf": 0,
-          "ra": 0
+          "rf": 12,
+          "ra": 3
         }
       ]
     }
@@ -89,12 +89,28 @@
   "leaders": {
     "hitting": [
       {
+        "player": "B H #00",
+        "team": "Smash Fastpitch Shaffer",
+        "avg": "1.000",
+        "ops": "3.000",
+        "h": 3,
+        "rbi": 3
+      },
+      {
         "player": "Preslie E #96",
         "team": "All American Prady",
         "avg": ".667",
         "ops": "2.334",
         "h": 2,
         "rbi": 4
+      },
+      {
+        "player": "P F #10",
+        "team": "Smash Fastpitch Shaffer",
+        "avg": ".667",
+        "ops": "2.083",
+        "h": 2,
+        "rbi": 1
       },
       {
         "player": "Emery W #23",
@@ -113,27 +129,11 @@
         "rbi": 1
       },
       {
-        "player": "Addison T #3",
-        "team": "FP Select Barringer",
-        "avg": ".333",
-        "ops": "1.000",
-        "h": 1,
-        "rbi": 0
-      },
-      {
-        "player": "L Bruckner #12",
-        "team": "Lady Dukes WPA 2033",
-        "avg": ".333",
-        "ops": ".667",
-        "h": 1,
-        "rbi": 2
-      },
-      {
-        "player": "C McWilliams #18",
-        "team": "Lady Dukes WPA 2033",
-        "avg": ".333",
-        "ops": ".667",
-        "h": 1,
+        "player": "R T #8",
+        "team": "Smash Fastpitch Shaffer",
+        "avg": ".667",
+        "ops": "1.333",
+        "h": 2,
         "rbi": 2
       }
     ],
@@ -153,6 +153,13 @@
         "k": 5
       },
       {
+        "player": "H S #2",
+        "team": "Smash Fastpitch Shaffer",
+        "era": "0.00",
+        "ip": "2.1",
+        "k": 1
+      },
+      {
         "player": "Brooklynn R #11",
         "team": "Pittsburgh Power Theys",
         "era": "0.00",
@@ -165,13 +172,6 @@
         "era": "3.50",
         "ip": "2.0",
         "k": 2
-      },
-      {
-        "player": "Gizelle R #00",
-        "team": "FP Select Barringer",
-        "era": "8.75",
-        "ip": "4.0",
-        "k": 0
       }
     ]
   },
