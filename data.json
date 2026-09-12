@@ -89,27 +89,11 @@
   "leaders": {
     "hitting": [
       {
-        "player": "Elliette M #56",
-        "team": "Pittsburgh Passion",
-        "avg": ".750",
-        "ops": "2.500",
-        "h": 3,
-        "rbi": 3
-      },
-      {
-        "player": "Amelia H #6",
-        "team": "Pittsburgh Passion",
-        "avg": ".750",
-        "ops": "2.500",
-        "h": 3,
-        "rbi": 2
-      },
-      {
         "player": "Kacey B #5",
         "team": "Pittsburgh Passion",
         "avg": "1.000",
-        "ops": "2.333",
-        "h": 3,
+        "ops": "2.500",
+        "h": 4,
         "rbi": 2
       },
       {
@@ -119,6 +103,14 @@
         "ops": "2.233",
         "h": 4,
         "rbi": 4
+      },
+      {
+        "player": "Elliette M #56",
+        "team": "Pittsburgh Passion",
+        "avg": ".667",
+        "ops": "2.048",
+        "h": 4,
+        "rbi": 5
       },
       {
         "player": "Preslie E #96",
@@ -135,6 +127,14 @@
         "ops": "1.667",
         "h": 3,
         "rbi": 6
+      },
+      {
+        "player": "K B #14",
+        "team": "Smash Fastpitch Shaffer",
+        "avg": ".500",
+        "ops": "1.667",
+        "h": 2,
+        "rbi": 2
       }
     ],
     "pitching": [
