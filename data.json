@@ -69,33 +69,25 @@
           "name": "Pittsburgh Spirit Barber",
           "gc": "https://web.gc.com/teams/HokaT0SguY8W/2027-spring-pittsburgh-spirit-12u-barber",
           "w": 0,
-          "l": 1,
+          "l": 2,
           "t": 0,
-          "rf": 3,
-          "ra": 17
+          "rf": 8,
+          "ra": 24
         },
         {
           "name": "Smash Fastpitch Shaffer",
           "gc": "https://web.gc.com/teams/ixDuIf5R0bMq/2026-fall-smash-fastpitch-12u-shaffer",
-          "w": 1,
+          "w": 2,
           "l": 0,
           "t": 0,
-          "rf": 12,
-          "ra": 3
+          "rf": 19,
+          "ra": 8
         }
       ]
     }
   ],
   "leaders": {
     "hitting": [
-      {
-        "player": "B H #00",
-        "team": "Smash Fastpitch Shaffer",
-        "avg": "1.000",
-        "ops": "3.000",
-        "h": 3,
-        "rbi": 3
-      },
       {
         "player": "Elliette M #56",
         "team": "Pittsburgh Passion",
@@ -121,12 +113,12 @@
         "rbi": 2
       },
       {
-        "player": "P F #10",
+        "player": "B H #00",
         "team": "Smash Fastpitch Shaffer",
-        "avg": ".667",
-        "ops": "2.083",
-        "h": 2,
-        "rbi": 1
+        "avg": ".800",
+        "ops": "2.233",
+        "h": 4,
+        "rbi": 4
       },
       {
         "player": "Preslie E #96",
@@ -135,15 +127,37 @@
         "ops": "1.800",
         "h": 3,
         "rbi": 6
+      },
+      {
+        "player": "Haven M #1",
+        "team": "All American Prady",
+        "avg": ".600",
+        "ops": "1.667",
+        "h": 3,
+        "rbi": 6
       }
     ],
     "pitching": [
+      {
+        "player": "H S #2",
+        "team": "Smash Fastpitch Shaffer",
+        "era": "0.00",
+        "ip": "4.1",
+        "k": 2
+      },
       {
         "player": "L Bruckner #12",
         "team": "Lady Dukes WPA 2033",
         "era": "0.00",
         "ip": "4.0",
         "k": 10
+      },
+      {
+        "player": "Avery T #7",
+        "team": "Pittsburgh Spirit Barber",
+        "era": "0.00",
+        "ip": "4.0",
+        "k": 2
       },
       {
         "player": "Avry G #37",
@@ -158,20 +172,6 @@
         "era": "0.00",
         "ip": "3.0",
         "k": 1
-      },
-      {
-        "player": "H S #2",
-        "team": "Smash Fastpitch Shaffer",
-        "era": "0.00",
-        "ip": "2.1",
-        "k": 1
-      },
-      {
-        "player": "Brooke K #20",
-        "team": "All American Prady",
-        "era": "0.00",
-        "ip": "2.0",
-        "k": 0
       }
     ]
   },
