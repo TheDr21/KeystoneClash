@@ -13,10 +13,10 @@
         {
           "name": "All American Prady",
           "gc": "https://web.gc.com/teams/SEiRB2dlKGav",
-          "w": 0,
+          "w": 1,
           "l": 0,
           "t": 0,
-          "rf": 0,
+          "rf": 12,
           "ra": 0
         },
         {
@@ -60,10 +60,10 @@
           "name": "Pittsburgh Power Theys",
           "gc": "https://web.gc.com/teams/CDC5rQVXNCGN",
           "w": 0,
-          "l": 0,
+          "l": 1,
           "t": 0,
           "rf": 0,
-          "ra": 0
+          "ra": 12
         },
         {
           "name": "Pittsburgh Spirit Barber",
