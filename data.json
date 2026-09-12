@@ -160,18 +160,18 @@
         "k": 1
       },
       {
-        "player": "Gizelle R #00",
-        "team": "FP Select Barringer",
-        "era": "3.50",
-        "ip": "4.0",
-        "k": 0
-      },
-      {
         "player": "A Glomb #1",
         "team": "Lady Dukes WPA 2033",
         "era": "3.50",
         "ip": "2.0",
         "k": 2
+      },
+      {
+        "player": "Gizelle R #00",
+        "team": "FP Select Barringer",
+        "era": "8.75",
+        "ip": "4.0",
+        "k": 0
       }
     ]
   },
