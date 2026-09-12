@@ -50,11 +50,11 @@
         {
           "name": "Pittsburgh Passion",
           "gc": "https://web.gc.com/teams/Lk2mlbKyLsGh",
-          "w": 0,
+          "w": 1,
           "l": 0,
           "t": 0,
-          "rf": 0,
-          "ra": 0
+          "rf": 17,
+          "ra": 3
         },
         {
           "name": "Pittsburgh Power Theys",
@@ -69,10 +69,10 @@
           "name": "Pittsburgh Spirit Barber",
           "gc": "https://web.gc.com/teams/HokaT0SguY8W/2027-spring-pittsburgh-spirit-12u-barber",
           "w": 0,
-          "l": 0,
+          "l": 1,
           "t": 0,
-          "rf": 0,
-          "ra": 0
+          "rf": 3,
+          "ra": 17
         },
         {
           "name": "Smash Fastpitch Shaffer",
@@ -97,6 +97,22 @@
         "rbi": 3
       },
       {
+        "player": "Elliette M #56",
+        "team": "Pittsburgh Passion",
+        "avg": ".750",
+        "ops": "2.500",
+        "h": 3,
+        "rbi": 3
+      },
+      {
+        "player": "Amelia H #6",
+        "team": "Pittsburgh Passion",
+        "avg": ".750",
+        "ops": "2.500",
+        "h": 3,
+        "rbi": 2
+      },
+      {
         "player": "Preslie E #96",
         "team": "All American Prady",
         "avg": ".667",
@@ -105,36 +121,20 @@
         "rbi": 4
       },
       {
+        "player": "Kacey B #5",
+        "team": "Pittsburgh Passion",
+        "avg": "1.000",
+        "ops": "2.333",
+        "h": 3,
+        "rbi": 2
+      },
+      {
         "player": "P F #10",
         "team": "Smash Fastpitch Shaffer",
         "avg": ".667",
         "ops": "2.083",
         "h": 2,
         "rbi": 1
-      },
-      {
-        "player": "Emery W #23",
-        "team": "FP Select Barringer",
-        "avg": ".667",
-        "ops": "2.000",
-        "h": 2,
-        "rbi": 0
-      },
-      {
-        "player": "A Dantry #41",
-        "team": "Lady Dukes WPA 2033",
-        "avg": ".750",
-        "ops": "1.500",
-        "h": 3,
-        "rbi": 1
-      },
-      {
-        "player": "R T #8",
-        "team": "Smash Fastpitch Shaffer",
-        "avg": ".667",
-        "ops": "1.333",
-        "h": 2,
-        "rbi": 2
       }
     ],
     "pitching": [
@@ -167,10 +167,10 @@
         "k": 1
       },
       {
-        "player": "A Glomb #1",
-        "team": "Lady Dukes WPA 2033",
-        "era": "3.50",
-        "ip": "2.0",
+        "player": "Sammi C #12",
+        "team": "Pittsburgh Spirit Barber",
+        "era": "2.80",
+        "ip": "5.0",
         "k": 2
       }
     ]
