@@ -13,20 +13,20 @@
         {
           "name": "All American Prady",
           "gc": "https://web.gc.com/teams/SEiRB2dlKGav",
-          "w": 1,
+          "w": 2,
           "l": 0,
           "t": 0,
-          "rf": 12,
-          "ra": 0
+          "rf": 23,
+          "ra": 2
         },
         {
           "name": "FP Select Barringer",
           "gc": "https://web.gc.com/teams/KLy7mcYt9g1D",
           "w": 0,
-          "l": 1,
+          "l": 2,
           "t": 0,
-          "rf": 3,
-          "ra": 9
+          "rf": 5,
+          "ra": 20
         },
         {
           "name": "Lady Dukes WPA 2033",
@@ -113,14 +113,6 @@
         "rbi": 2
       },
       {
-        "player": "Preslie E #96",
-        "team": "All American Prady",
-        "avg": ".667",
-        "ops": "2.334",
-        "h": 2,
-        "rbi": 4
-      },
-      {
         "player": "Kacey B #5",
         "team": "Pittsburgh Passion",
         "avg": "1.000",
@@ -135,6 +127,14 @@
         "ops": "2.083",
         "h": 2,
         "rbi": 1
+      },
+      {
+        "player": "Preslie E #96",
+        "team": "All American Prady",
+        "avg": ".600",
+        "ops": "1.800",
+        "h": 3,
+        "rbi": 6
       }
     ],
     "pitching": [
@@ -167,11 +167,11 @@
         "k": 1
       },
       {
-        "player": "A Dantry #41",
-        "team": "Lady Dukes WPA 2033",
-        "era": "2.33",
-        "ip": "3.0",
-        "k": 2
+        "player": "Brooke K #20",
+        "team": "All American Prady",
+        "era": "0.00",
+        "ip": "2.0",
+        "k": 0
       }
     ]
   },
