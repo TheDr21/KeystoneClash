@@ -87,8 +87,93 @@
     }
   ],
   "leaders": {
-    "hitting": [],
-    "pitching": []
+    "hitting": [
+      {
+        "player": "Preslie E #96",
+        "team": "All American Prady",
+        "avg": ".667",
+        "ops": "2.334",
+        "h": 2,
+        "rbi": 4
+      },
+      {
+        "player": "Emery W #23",
+        "team": "FP Select Barringer",
+        "avg": ".667",
+        "ops": "2.000",
+        "h": 2,
+        "rbi": 0
+      },
+      {
+        "player": "A Dantry #41",
+        "team": "Lady Dukes WPA 2033",
+        "avg": ".750",
+        "ops": "1.500",
+        "h": 3,
+        "rbi": 1
+      },
+      {
+        "player": "Addison T #3",
+        "team": "FP Select Barringer",
+        "avg": ".333",
+        "ops": "1.000",
+        "h": 1,
+        "rbi": 0
+      },
+      {
+        "player": "L Bruckner #12",
+        "team": "Lady Dukes WPA 2033",
+        "avg": ".333",
+        "ops": ".667",
+        "h": 1,
+        "rbi": 2
+      },
+      {
+        "player": "C McWilliams #18",
+        "team": "Lady Dukes WPA 2033",
+        "avg": ".333",
+        "ops": ".667",
+        "h": 1,
+        "rbi": 2
+      }
+    ],
+    "pitching": [
+      {
+        "player": "L Bruckner #12",
+        "team": "Lady Dukes WPA 2033",
+        "era": "0.00",
+        "ip": "4.0",
+        "k": 10
+      },
+      {
+        "player": "Avry G #37",
+        "team": "All American Prady",
+        "era": "0.00",
+        "ip": "3.0",
+        "k": 5
+      },
+      {
+        "player": "Brooklynn R #11",
+        "team": "Pittsburgh Power Theys",
+        "era": "0.00",
+        "ip": "2.0",
+        "k": 1
+      },
+      {
+        "player": "Gizelle R #00",
+        "team": "FP Select Barringer",
+        "era": "3.50",
+        "ip": "4.0",
+        "k": 0
+      },
+      {
+        "player": "A Glomb #1",
+        "team": "Lady Dukes WPA 2033",
+        "era": "3.50",
+        "ip": "2.0",
+        "k": 2
+      }
+    ]
   },
   "raffle": {
     "raised": 80.0,
