@@ -31,11 +31,11 @@
         {
           "name": "Lady Dukes WPA 2033",
           "gc": "https://web.gc.com/teams/Qgojbuf369Eu/2027-spring-lady-dukes-wpa-2033",
-          "w": 1,
+          "w": 2,
           "l": 0,
           "t": 0,
-          "rf": 9,
-          "ra": 3,
+          "rf": 20,
+          "ra": 5,
           "host": true
         },
         {
@@ -60,10 +60,10 @@
           "name": "Pittsburgh Power Theys",
           "gc": "https://web.gc.com/teams/CDC5rQVXNCGN",
           "w": 0,
-          "l": 1,
+          "l": 2,
           "t": 0,
-          "rf": 0,
-          "ra": 12
+          "rf": 2,
+          "ra": 23
         },
         {
           "name": "Pittsburgh Spirit Barber",
@@ -153,6 +153,13 @@
         "k": 5
       },
       {
+        "player": "M Porter #14",
+        "team": "Lady Dukes WPA 2033",
+        "era": "0.00",
+        "ip": "3.0",
+        "k": 1
+      },
+      {
         "player": "H S #2",
         "team": "Smash Fastpitch Shaffer",
         "era": "0.00",
@@ -160,17 +167,10 @@
         "k": 1
       },
       {
-        "player": "Brooklynn R #11",
-        "team": "Pittsburgh Power Theys",
-        "era": "0.00",
-        "ip": "2.0",
-        "k": 1
-      },
-      {
-        "player": "Sammi C #12",
-        "team": "Pittsburgh Spirit Barber",
-        "era": "2.80",
-        "ip": "5.0",
+        "player": "A Dantry #41",
+        "team": "Lady Dukes WPA 2033",
+        "era": "2.33",
+        "ip": "3.0",
         "k": 2
       }
     ]
