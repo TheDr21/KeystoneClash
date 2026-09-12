@@ -23,19 +23,19 @@
           "name": "FP Select Barringer",
           "gc": "https://web.gc.com/teams/KLy7mcYt9g1D",
           "w": 0,
-          "l": 0,
+          "l": 1,
           "t": 0,
-          "rf": 0,
-          "ra": 0
+          "rf": 3,
+          "ra": 9
         },
         {
           "name": "Lady Dukes WPA 2033",
           "gc": "https://web.gc.com/teams/Qgojbuf369Eu/2027-spring-lady-dukes-wpa-2033",
-          "w": 0,
+          "w": 1,
           "l": 0,
           "t": 0,
-          "rf": 0,
-          "ra": 0,
+          "rf": 9,
+          "ra": 3,
           "host": true
         },
         {
