@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keystone Clash 2026 — Rain Update · Bracket moves to No Offseason</title>
+<meta name="description" content="Weather update for Keystone Clash: Saturday bracket games rescheduled. Single-elimination continues at No Offseason, Tarentum PA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101C3D;
+  --navy:#16295E;
+  --orange:#E8632A;
+  --page:#EEF1F7;
+  --card:#FFFFFF;
+  --line:#D6DCE9;
+  --muted:#6B7893;
+  --maxw:1080px;
+  --warnbg:#FFF6F1;
+  --warnink:#B8410F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--page); color:var(--ink);
+  font-size:16px; line-height:1.5;
+  font-variant-numeric:tabular-nums;
+}
+a{color:var(--navy)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+.mast{background:var(--navy);color:#fff;padding:34px 0 0}
+.mast h1{
+  font-family:"Archivo Black","Archivo",sans-serif;
+  font-size:clamp(2.4rem,9vw,4.6rem);
+  line-height:.9; letter-spacing:-.02em; text-transform:uppercase;
+}
+.mast h1 em{font-style:normal;color:var(--orange);display:block}
+.mastmeta{margin-top:14px;font-size:.95rem;color:#B9C6E6;line-height:1.7}
+.mastmeta strong{color:#fff;font-weight:600}
+.badge{
+  display:inline-block;margin-top:14px;background:var(--orange);color:#fff;
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;padding:6px 10px;border-radius:3px;
+}
+.mastbar{
+  margin-top:24px;border-top:5px solid var(--orange);
+  display:flex;flex-wrap:wrap;gap:0;
+}
+.mastbar a{
+  flex:1 1 auto;min-width:150px;text-align:center;
+  padding:15px 16px;color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;
+  border-right:1px solid rgba(255,255,255,.18);
+}
+.mastbar a:last-child{border-right:0}
+.mastbar a:hover,.mastbar a:focus-visible{background:rgba(255,255,255,.12)}
+.mastbar a.live{background:var(--orange)}
+.mastbar a.live:hover{background:#cf5320}
+
+.status{
+  background:#fff;border-bottom:1px solid var(--line);
+  padding:16px 0;font-size:.95rem;
+}
+.status .wrap{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--orange);flex:none;
+     transform:translateY(-1px)}
+.status p{flex:1 1 300px;margin:0}
+.status time{color:var(--muted);font-size:.85rem}
+
+section{padding:40px 0}
+.shead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+       margin-bottom:6px;flex-wrap:wrap}
+.shead h2{font-size:1.5rem;letter-spacing:-.01em}
+.shead p{color:var(--muted);font-size:.9rem;max-width:56ch}
+
+.alert{
+  background:var(--warnbg);border:2px solid var(--orange);border-left:9px solid var(--orange);
+  border-radius:4px;padding:20px 22px;margin-top:18px;
+}
+.alert .k{font-size:.72rem;letter-spacing:.16em;font-weight:700;color:var(--warnink)}
+.alert h3{font-size:1.35rem;margin:4px 0 10px;letter-spacing:-.01em}
+.alert p{font-size:.98rem;line-height:1.55;margin-bottom:10px}
+.alert p:last-child{margin-bottom:0}
+.alert b{font-weight:600}
+.alert .warn{color:var(--warnink);font-weight:600}
+.alert a{font-weight:600}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:22px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 18px;
+}
+.card h3{font-size:1.05rem;margin-bottom:8px}
+.card p,.card li{font-size:.92rem;color:var(--ink);line-height:1.5}
+.card ul{margin:8px 0 0 1.1em}
+.card .muted{color:var(--muted);font-size:.85rem;margin-top:8px}
+.kicker{font-size:.72rem;letter-spacing:.14em;font-weight:700;color:var(--muted);margin-bottom:4px}
+
+.pools{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px;margin-top:22px}
+.pool{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.pool h3{
+  background:var(--ink);color:#fff;padding:11px 16px;font-size:1rem;font-weight:600;
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+.pool h3 span{font-size:.78rem;font-weight:400;color:#9FB0D8}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th{
+  text-align:right;padding:8px 8px;font-size:.72rem;font-weight:600;color:var(--muted);
+  border-bottom:1px solid var(--line);white-space:nowrap;
+}
+th:first-child,th:nth-child(2){text-align:left}
+td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.rank{
+  width:34px;text-align:center;padding-left:12px;
+  font-family:"Archivo Black",sans-serif;color:var(--orange);font-size:1.05rem;
+}
+td.team{text-align:left;white-space:normal;line-height:1.25;width:99%}
+td.team a{font-weight:600;text-decoration:none}
+td.team a:hover{text-decoration:underline}
+td.team small{display:block;color:var(--muted);font-size:.76rem;font-weight:400}
+td.rec{font-weight:600}
+.pool tbody tr:first-child{background:#FFF6F1}
+td.team a.host{color:var(--orange)}
+td.team a.host::after{content:"  host";font-size:.68rem;font-weight:600;color:var(--muted);letter-spacing:.06em}
+.poolfoot{padding:10px 16px;font-size:.78rem;color:var(--muted);background:#F7F9FC;
+          border-top:1px solid var(--line)}
+
+.bracket{display:grid;gap:14px;margin-top:22px}
+.rnd{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.rnd h3{background:var(--navy);color:#fff;padding:12px 16px;font-size:1rem}
+.rnd h3 span{font-weight:400;color:#B9C6E6;font-size:.85rem;margin-left:8px}
+.match{
+  display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;
+  padding:14px 16px;border-bottom:1px solid var(--line);
+}
+.match:last-child{border-bottom:0}
+.match .seed{
+  font-family:"Archivo Black",sans-serif;color:var(--orange);font-size:1.1rem;text-align:center;
+}
+.match .who b{display:block;font-size:1rem;line-height:1.25}
+.match .who small{color:var(--muted);font-size:.8rem}
+.match .vs{color:var(--muted);font-weight:700;font-size:.8rem;letter-spacing:.08em}
+.consolation .rnd h3{background:var(--ink)}
+.note-pill{
+  display:inline-block;margin-top:6px;background:#EEF1F7;border:1px solid var(--line);
+  border-radius:999px;padding:3px 10px;font-size:.75rem;color:var(--muted);font-weight:600;
+}
+
+.teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:22px}
+.tcard{
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--orange);
+  border-radius:4px;padding:15px 17px;display:block;text-decoration:none;color:inherit;
+}
+.tcard:hover,.tcard:focus-visible{border-color:var(--navy);background:#FBFCFE}
+.tcard.host{border-left-color:var(--navy);background:#FBFCFE}
+.tcard b{display:block;font-size:1.02rem;font-weight:600;line-height:1.25}
+.tcard span{display:block;margin-top:5px;font-size:.82rem;color:var(--muted)}
+.tcard u{display:inline-block;margin-top:9px;font-size:.82rem;color:var(--navy);
+         text-decoration:none;font-weight:600;border-bottom:2px solid var(--orange);padding-bottom:1px}
+
+.facts{background:var(--card);border:1px solid var(--line);border-radius:4px;margin-top:22px}
+.facts div{padding:13px 17px;border-bottom:1px solid var(--line)}
+.facts div:last-of-type{border-bottom:0}
+.facts dt{font-size:.74rem;font-weight:600;color:var(--muted);margin-bottom:3px}
+.facts dd{margin:0;font-size:.93rem;line-height:1.45}
+.facts dd b{font-weight:600}
+
+.leaders{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px;margin-top:22px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+.packet{
+  display:block;background:var(--navy);color:#fff;text-decoration:none;
+  padding:15px 18px;border-radius:4px;font-weight:600;font-size:.98rem;line-height:1.35;margin-top:18px;
+}
+.packet:hover,.packet:focus-visible{background:#0F1E48}
+.packet span{display:block;font-weight:400;font-size:.82rem;color:#B9C6E6;margin-top:3px}
+
+.secondary-note{
+  margin-top:18px;padding:12px 14px;background:#F7F9FC;border:1px dashed var(--line);
+  border-radius:4px;font-size:.85rem;color:var(--muted);
+}
+
+footer{background:var(--ink);color:#9FB0D8;padding:30px 0 40px;font-size:.85rem;line-height:1.7}
+footer strong{color:#fff}
+footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6A96}
+
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+@media (max-width:520px){
+  section{padding:30px 0}
+  .mastbar a{min-width:50%}
+  .match{grid-template-columns:44px 1fr}
+  .match .vs{grid-column:2;justify-self:start}
+}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <h1>Keystone<em>Clash</em></h1>
+    <p class="mastmeta">
+      <strong>September 11–13, 2026</strong><br>
+      <span>Originally East End Park, McDonald, PA · <b style="color:#fff">bracket now at No Offseason, Tarentum</b></span>
+    </p>
+    <div class="badge">SECONDARY UPDATE PAGE · RAIN RESCHEDULE</div>
+  </div>
+  <nav class="wrap mastbar" aria-label="Page sections">
+    <a class="live" href="#update">Rain update</a>
+    <a href="#bracket">Revised bracket</a>
+    <a href="#standings">Standings</a>
+    <a href="#teams">Teams</a>
+    <a href="#info">Venue &amp; info</a>
+    <a href="https://thedr21.github.io/KeystoneClash/" target="_blank" rel="noopener">Main site</a>
+  </nav>
+</header>
+
+<div class="status">
+  <div class="wrap">
+    <span class="dot" aria-hidden="true"></span>
+    <p><b>Weather update:</b> Current bracket games are being rescheduled due to rain. Play continues where we left off — single elimination at No Offseason.</p>
+    <time datetime="2026-09-12">Updated Sep 12, 2026</time>
+  </div>
+</div>
+
+<main>
+
+<section id="update">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Rain update</h2>
+      <p>Posted for coaches and families. This is a secondary update page — the main Keystone Clash site still hosts standings, GameChanger links, and the 50/50.</p>
+    </div>
+
+    <div class="alert">
+      <div class="k">SATURDAY EVENING · WEATHER</div>
+      <h3>Bracket games are being rescheduled due to rain</h3>
+      <p>Pool play is complete. The first-round bracket games that were set for East End Park are <b>being rescheduled</b>. We will <b>continue as left off</b> — same seeds, same first-round matchups.</p>
+      <p>The remainder of the bracket is now <b>single elimination</b> at <b>No Offseason</b>,
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=306+Chase+Drive+Tarentum+PA+15084" target="_blank" rel="noopener">306 Chase Drive, Tarentum, PA 15084</a>.</p>
+      <p class="warn">Turf shoes only at No Offseason. No metal cleats. Pack a second pair before you leave — do not wait until you arrive.</p>
+      <p>Tournament directors will notify coaches with exact game times. Do not head to Tarentum until you hear from us. Official bracket posting will also update on Tourney Machine when times are locked.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="kicker">WHAT CHANGED</div>
+        <h3>Format &amp; location</h3>
+        <ul>
+          <li>Venue for remaining bracket: <b>No Offseason, Tarentum</b></li>
+          <li>Bracket format: <b>single elimination</b> from here forward</li>
+          <li>First-round seeds unchanged: <b>1v8 · 2v7 · 3v6 · 4v5</b></li>
+          <li>Games resume from where Saturday left off (no completed bracket games scored yet on Tourney Machine)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="kicker">HOW THE BRACKET WORKS NOW</div>
+        <h3>Winners &amp; consolation</h3>
+        <ul>
+          <li><b>First-round winners</b> advance and continue in the championship half</li>
+          <li><b>First-round losers</b> play a <b>consolation</b> game</li>
+          <li>No double-elim revival after this point — lose and you are done in the winner’s path</li>
+        </ul>
+        <p class="muted">Exact consolation pairings and Sunday times will be posted with coach texts once fields are confirmed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bracket">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Revised first round</h2>
+      <p>Same seeds as Tourney Machine. Site names from <code>data.json</code>; seed labels from the official bracket.</p>
+    </div>
+
+    <div class="bracket">
+      <div class="rnd">
+        <h3>Round of 8 <span>single elim · No Offseason</span></h3>
+        <div class="match">
+          <div class="seed">1<br><span class="vs">vs</span><br>8</div>
+          <div class="who">
+            <b>#1 All American Prady</b>
+            <small>Team All American RED · pool 2–0 · RF 23 / RA 2</small>
+            <b style="margin-top:8px">#8 Outlaws 2033 Valore</b>
+            <small>Outlaws Valore 11u · pool 0–2 · RF 6 / RA 26</small>
+            <span class="note-pill">Was B1 · Sat 3:00 PM East End F2 · rescheduled</span>
+          </div>
+          <div class="vs">RESCHEDULED</div>
+        </div>
+        <div class="match">
+          <div class="seed">4<br><span class="vs">vs</span><br>5</div>
+          <div class="who">
+            <b>#4 Smash Fastpitch Shaffer</b>
+            <small>SMASH Fastpitch · pool 2–0 · RF 19 / RA 8</small>
+            <b style="margin-top:8px">#5 FP Select Barringer</b>
+            <small>pool 0–2 · RF 5 / RA 20</small>
+            <span class="note-pill">Was B2 · Sat 3:00 PM East End F1 · rescheduled</span>
+          </div>
+          <div class="vs">RESCHEDULED</div>
+        </div>
+        <div class="match">
+          <div class="seed">3<br><span class="vs">vs</span><br>6</div>
+          <div class="who">
+            <b>#3 Pittsburgh Passion</b>
+            <small>Passion Softball 12u · pool 2–0 · RF 31 / RA 6</small>
+            <b style="margin-top:8px">#6 Pittsburgh Power Theys</b>
+            <small>pool 0–2 · RF 2 / RA 23</small>
+            <span class="note-pill">Was B3 · Sat 4:45 PM East End F1 · rescheduled</span>
+          </div>
+          <div class="vs">RESCHEDULED</div>
+        </div>
+        <div class="match">
+          <div class="seed">2<br><span class="vs">vs</span><br>7</div>
+          <div class="who">
+            <b>#2 Lady Dukes WPA 2033</b>
+            <small>Lady Dukes LaFever 11u · host · pool 2–0 · RF 20 / RA 5</small>
+            <b style="margin-top:8px">#7 Pittsburgh Spirit Barber</b>
+            <small>12u spirit barber · pool 0–2 · RF 8 / RA 24</small>
+            <span class="note-pill">Was B4 · Sat 4:45 PM East End F2 · rescheduled</span>
+          </div>
+          <div class="vs">RESCHEDULED</div>
+        </div>
+      </div>
+
+      <div class="rnd consolation">
+        <h3>After first round <span>single elim path</span></h3>
+        <div class="match">
+          <div class="seed">W</div>
+          <div class="who">
+            <b>Winners continue</b>
+            <small>Winner of 1v8 · Winner of 4v5 · Winner of 3v6 · Winner of 2v7 advance in the championship half (semis → final as scheduled once times lock).</small>
+          </div>
+          <div class="vs">ADVANCE</div>
+        </div>
+        <div class="match">
+          <div class="seed">L</div>
+          <div class="who">
+            <b>Consolation for first-round losers</b>
+            <small>Losers of 1v8, 4v5, 3v6, and 2v7 play consolation games. Pairings posted with coach notifications.</small>
+          </div>
+          <div class="vs">CONSOLATION</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="secondary-note">
+      Official live bracket:
+      <a href="https://tourneymachine.com/Public/Results/Division.aspx?IDTournament=h202607031619521870950ff4a05a84e&amp;IDDivision=h20260703163616344456f126a2c3848" target="_blank" rel="noopener">Tourney Machine · 11u/12u</a>.
+      This page is a secondary coach/family update; it does not replace Tourney Machine as the official record.
+    </p>
+  </div>
+</section>
+
+<section id="standings">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Pool standings</h2>
+      <p>Pulled from repo <code>data.json</code>, with Passion and Outlaws aligned to Tourney Machine pool finals (site file was still one game behind on those two).</p>
+    </div>
+    <div class="pools">
+      <div class="pool">
+        <h3>All teams<span>Pool complete · seeds locked</span></h3>
+        <div class="scroll">
+          <table>
+            <thead><tr>
+              <th scope="col">#</th>
+              <th scope="col">Team</th>
+              <th scope="col">Rec</th>
+              <th scope="col">RS</th>
+              <th scope="col">RA</th>
+              <th scope="col">Diff</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td class="rank">1</td>
+                <td class="team"><a href="https://web.gc.com/teams/SEiRB2dlKGav" target="_blank" rel="noopener">All American Prady</a><small>Seed 1</small></td>
+                <td class="rec">2–0</td><td>23</td><td>2</td><td>+21</td>
+              </tr>
+              <tr>
+                <td class="rank">2</td>
+                <td class="team"><a class="host" href="https://web.gc.com/teams/Qgojbuf369Eu/2027-spring-lady-dukes-wpa-2033" target="_blank" rel="noopener">Lady Dukes WPA 2033</a><small>Seed 2</small></td>
+                <td class="rec">2–0</td><td>20</td><td>5</td><td>+15</td>
+              </tr>
+              <tr>
+                <td class="rank">3</td>
+                <td class="team"><a href="https://web.gc.com/teams/Lk2mlbKyLsGh" target="_blank" rel="noopener">Pittsburgh Passion</a><small>Seed 3 · synced to TM</small></td>
+                <td class="rec">2–0</td><td>31</td><td>6</td><td>+25</td>
+              </tr>
+              <tr>
+                <td class="rank">4</td>
+                <td class="team"><a href="https://web.gc.com/teams/ixDuIf5R0bMq/2026-fall-smash-fastpitch-12u-shaffer" target="_blank" rel="noopener">Smash Fastpitch Shaffer</a><small>Seed 4</small></td>
+                <td class="rec">2–0</td><td>19</td><td>8</td><td>+11</td>
+              </tr>
+              <tr>
+                <td class="rank">5</td>
+                <td class="team"><a href="https://web.gc.com/teams/KLy7mcYt9g1D" target="_blank" rel="noopener">FP Select Barringer</a><small>Seed 5</small></td>
+                <td class="rec">0–2</td><td>5</td><td>20</td><td>−15</td>
+              </tr>
+              <tr>
+                <td class="rank">6</td>
+                <td class="team"><a href="https://web.gc.com/teams/CDC5rQVXNCGN" target="_blank" rel="noopener">Pittsburgh Power Theys</a><small>Seed 6</small></td>
+                <td class="rec">0–2</td><td>2</td><td>23</td><td>−21</td>
+              </tr>
+              <tr>
+                <td class="rank">7</td>
+                <td class="team"><a href="https://web.gc.com/teams/HokaT0SguY8W/2027-spring-pittsburgh-spirit-12u-barber" target="_blank" rel="noopener">Pittsburgh Spirit Barber</a><small>Seed 7</small></td>
+                <td class="rec">0–2</td><td>8</td><td>24</td><td>−16</td>
+              </tr>
+              <tr>
+                <td class="rank">8</td>
+                <td class="team"><a href="https://web.gc.com/teams/quFlJ3qtjOh1" target="_blank" rel="noopener">Outlaws 2033 Valore</a><small>Seed 8 · synced to TM</small></td>
+                <td class="rec">0–2</td><td>6</td><td>26</td><td>−20</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="poolfoot">Seed order follows Tourney Machine (official). Head-to-head may be applied by the TD beyond the raw sort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teams">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Teams · GameChanger</h2>
+      <p>Links from repo <code>data.json</code>. Live scoring and box scores stay on GameChanger.</p>
+    </div>
+    <div class="teams">
+      <a class="tcard" href="https://web.gc.com/teams/SEiRB2dlKGav" target="_blank" rel="noopener"><b>All American Prady</b><span>Seed 1</span><u>Open on GameChanger</u></a>
+      <a class="tcard host" href="https://web.gc.com/teams/Qgojbuf369Eu/2027-spring-lady-dukes-wpa-2033" target="_blank" rel="noopener"><b>Lady Dukes WPA 2033</b><span>Seed 2 · host</span><u>Open on GameChanger</u></a>
+      <a class="tcard" href="https://web.gc.com/teams/Lk2mlbKyLsGh" target="_blank" rel="noopener"><b>Pittsburgh Passion</b><span>Seed 3</span><u>Open on GameChanger</u></a>
+      <a class="tcard" href="https://web.gc.com/teams/ixDuIf5R0bMq/2026-fall-smash-fastpitch-12u-shaffer" target="_blank" rel="noopener"><b>Smash Fastpitch Shaffer</b><span>Seed 4</span><u>Open on GameChanger</u></a>
+      <a class="tcard" href="https://web.gc.com/teams/KLy7mcYt9g1D" target="_blank" rel="noopener"><b>FP Select Barringer</b><span>Seed 5</span><u>Open on GameChanger</u></a>
+      <a class="tcard" href="https://web.gc.com/teams/CDC5rQVXNCGN" target="_blank" rel="noopener"><b>Pittsburgh Power Theys</b><span>Seed 6</span><u>Open on GameChanger</u></a>
+      <a class="tcard" href="https://web.gc.com/teams/HokaT0SguY8W/2027-spring-pittsburgh-spirit-12u-barber" target="_blank" rel="noopener"><b>Pittsburgh Spirit Barber</b><span>Seed 7</span><u>Open on GameChanger</u></a>
+      <a class="tcard" href="https://web.gc.com/teams/quFlJ3qtjOh1" target="_blank" rel="noopener"><b>Outlaws 2033 Valore</b><span>Seed 8</span><u>Open on GameChanger</u></a>
+    </div>
+  </div>
+</section>
+
+<section id="leaders">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Stat leaders</h2>
+      <p>As currently published in repo <code>data.json</code> (not refreshed in this rain update).</p>
+    </div>
+    <div class="leaders">
+      <div class="pool">
+        <h3>Hitting<span>by OPS</span></h3>
+        <div class="scroll">
+          <table>
+            <thead><tr><th></th><th scope="col">Player</th><th scope="col">AVG</th><th scope="col">OPS</th><th scope="col">H</th><th scope="col">RBI</th></tr></thead>
+            <tbody>
+              <tr><td class="rank">1</td><td class="team"><b>Elliette M #56</b><small>Pittsburgh Passion</small></td><td>.750</td><td>2.500</td><td>3</td><td>3</td></tr>
+              <tr><td class="rank">2</td><td class="team"><b>Amelia H #6</b><small>Pittsburgh Passion</small></td><td>.750</td><td>2.500</td><td>3</td><td>2</td></tr>
+              <tr><td class="rank">3</td><td class="team"><b>Kacey B #5</b><small>Pittsburgh Passion</small></td><td>1.000</td><td>2.333</td><td>3</td><td>2</td></tr>
+              <tr><td class="rank">4</td><td class="team"><b>B H #00</b><small>Smash Fastpitch Shaffer</small></td><td>.800</td><td>2.233</td><td>4</td><td>4</td></tr>
+              <tr><td class="rank">5</td><td class="team"><b>Preslie E #96</b><small>All American Prady</small></td><td>.600</td><td>1.800</td><td>3</td><td>6</td></tr>
+              <tr><td class="rank">6</td><td class="team"><b>Haven M #1</b><small>All American Prady</small></td><td>.600</td><td>1.667</td><td>3</td><td>6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pool">
+        <h3>Pitching<span>by ERA</span></h3>
+        <div class="scroll">
+          <table>
+            <thead><tr><th></th><th scope="col">Player</th><th scope="col">ERA</th><th scope="col">IP</th><th scope="col">K</th></tr></thead>
+            <tbody>
+              <tr><td class="rank">1</td><td class="team"><b>H S #2</b><small>Smash Fastpitch Shaffer</small></td><td>0.00</td><td>4.1</td><td>2</td></tr>
+              <tr><td class="rank">2</td><td class="team"><b>L Bruckner #12</b><small>Lady Dukes WPA 2033</small></td><td>0.00</td><td>4.0</td><td>10</td></tr>
+              <tr><td class="rank">3</td><td class="team"><b>Avery T #7</b><small>Pittsburgh Spirit Barber</small></td><td>0.00</td><td>4.0</td><td>2</td></tr>
+              <tr><td class="rank">4</td><td class="team"><b>Avry G #37</b><small>All American Prady</small></td><td>0.00</td><td>3.0</td><td>5</td></tr>
+              <tr><td class="rank">5</td><td class="team"><b>M Porter #14</b><small>Lady Dukes WPA 2033</small></td><td>0.00</td><td>3.0</td><td>1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="info">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Venue &amp; tournament info</h2>
+      <p>Remaining games: No Offseason. Pool games were at East End Park.</p>
+    </div>
+
+    <div class="alert" style="margin-top:18px">
+      <div class="k">NEW BRACKET VENUE</div>
+      <h3>No Offseason · Tarentum</h3>
+      <p><b>306 Chase Drive, Tarentum, PA 15084</b> —
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=306+Chase+Drive+Tarentum+PA+15084" target="_blank" rel="noopener">Open in Maps</a>.</p>
+      <p>Outdoor all-turf facility — plays through weather that would close East End Park.</p>
+      <p class="warn">Turf shoes only. No metal cleats.</p>
+    </div>
+
+    <dl class="facts">
+      <div>
+        <dt>Original complex (pool play)</dt>
+        <dd>East End Park, 51 Meadow St, McDonald, PA 15057. Two fields. Overflow parking on East O’Hara St.</dd>
+      </div>
+      <div>
+        <dt>Rules</dt>
+        <dd><b>USA Softball rules. 90 minutes, finish the inning.</b> Two umpires every game. Courtesy runner for pitcher and catcher. Run rule 12 after 3, 10 after 4, 8 after 5. Game official after three full innings; rain mid-inning reverts to last completed inning.
+          <a href="https://thedr21.github.io/KeystoneClash/full-rules.html" target="_blank" rel="noopener">Full Rules</a></dd>
+      </div>
+      <div>
+        <dt>Format (updated)</dt>
+        <dd>Pool play Friday evening and Saturday morning — complete. Bracket was scheduled Saturday afternoon at East End; <b>rescheduled due to rain</b>. Remaining bracket is <b>single elimination at No Offseason</b>. First-round losers play consolation; winners continue.</dd>
+      </div>
+      <div>
+        <dt>50/50 raffle</dt>
+        <dd>Still running — buy online or from volunteers.
+          <a href="https://www.zeffy.com/en-US/ticketing/lady-dukes-keystone-clash-tournament-raffle" target="_blank" rel="noopener">Buy tickets</a>.
+          Drawing Sunday; winner need not be present. Current pot on the main site (~$200 as of last Actions sync).</dd>
+      </div>
+      <div>
+        <dt>Questions</dt>
+        <dd>Derek Rocco, Artie Tortorice and Steve LaFever, Tournament Directors. Text both teams’ final scores after every game.</dd>
+      </div>
+    </dl>
+
+    <a class="packet" href="https://thedr21.github.io/KeystoneClash/coaches-packet.pdf" target="_blank" rel="noopener">
+      Download the coaches packet (PDF)
+      <span>Location, parking map, rules and tie breakers — plus Full Rules link on page 2. Venue change above overrides East End for remaining games.</span>
+    </a>
+
+    <p class="secondary-note">
+      This file is a <b>secondary update page</b> for the rain/reschedule announcement.
+      Main public site remains
+      <a href="https://thedr21.github.io/KeystoneClash/" target="_blank" rel="noopener">thedr21.github.io/KeystoneClash</a>
+      (standings from <code>data.json</code>). Suggested repo path if published: <code>rain-update.html</code> alongside <code>index.html</code>.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Keystone Clash</strong> is hosted by the Lady Dukes Softball Club, a registered 501(c)(3) nonprofit.<br>
+    Standings on these pages are unofficial. The bracket on Tourney Machine is the official record.<br>
+    Questions about a score or a stat line: Derek Rocco, Artie Tortorice and Steve LaFever, Tournament Directors.
+    <div class="crawler">SECONDARY UPDATE · RAIN RESCHEDULE · NOT YET PUSHED</div>
+  </div>
+</footer>
+
+</body>
+</html>
