@@ -201,6 +201,10 @@ td.team a.host::after{content:"  host";font-size:.68rem;font-weight:600;color:va
   padding:28px 20px;text-align:center;color:var(--muted);font-size:.92rem;
 }
 .empty b{display:block;color:var(--ink);font-weight:600;margin-bottom:5px;font-size:1rem}
+.allstats{display:block;margin-top:18px;background:var(--ink);color:#fff;text-decoration:none;
+  padding:15px 18px;border-radius:4px;font-weight:600;font-size:.98rem;line-height:1.35}
+.allstats:hover,.allstats:focus-visible{background:#0B1531}
+.allstats span{display:block;font-weight:400;font-size:.82rem;color:#B9C6E6;margin-top:3px}
 
 /* ---------- footer ---------- */
 footer{background:var(--ink);color:#9FB0D8;padding:30px 0 40px;font-size:.85rem;line-height:1.7}
@@ -234,6 +238,7 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
     <a href="#teams">Teams</a>
     <a href="#info">Tournament info</a>
     <a href="#leaders">Stat leaders</a>
+    <a href="stats.html">Full stats</a>
   </nav>
 </header>
 
@@ -350,6 +355,9 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
       <p>All five games, pool and bracket. Every line comes from that team's own scorebook. Qualifying minimums are 8 at-bats for hitters and 5 innings for pitchers. Hitters ranked by OPS, pitchers by ERA.</p>
     </div>
     <div class="leaders" id="leadergrid"></div>
+    <a class="allstats" href="stats.html">Full stats board &mdash; every player, every team
+      <span>Sort by any column, filter by team, and see the players who fell below the qualifying line.</span>
+    </a>
   </div>
 </section>
 
