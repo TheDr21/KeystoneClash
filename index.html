@@ -117,6 +117,19 @@ td.team a.host::after{content:"  host";font-size:.68rem;font-weight:600;color:va
 .tcard u{display:inline-block;margin-top:9px;font-size:.82rem;color:var(--navy);
          text-decoration:none;font-weight:600;border-bottom:2px solid var(--orange);padding-bottom:1px}
 
+/* ---------- bracket ---------- */
+.rounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px}
+.rnd{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.rnd h3{background:var(--ink);color:#fff;padding:10px 15px;font-size:.92rem;font-weight:600}
+.gm{padding:11px 15px;border-bottom:1px solid var(--line)}
+.gm:last-child{border-bottom:0}
+.gm .meta{font-size:.68rem;letter-spacing:.09em;color:var(--muted);font-weight:600;margin-bottom:5px}
+.gm .ln{display:flex;justify-content:space-between;gap:10px;font-size:.92rem;padding:1px 0}
+.gm .ln.w{font-weight:700}
+.gm .ln.w .sc{color:var(--orange)}
+.gm .ln.tie{color:var(--muted)}
+.sc{font-variant-numeric:tabular-nums;flex:none}
+
 /* ---------- rain plan ---------- */
 .rain{background:#FFF6F1;border:2px solid var(--orange);border-left:9px solid var(--orange);
   border-radius:4px;padding:16px 20px;margin-top:20px}
@@ -204,6 +217,7 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
   </div>
   <nav class="wrap mastbar" aria-label="Tournament links">
     <a class="live" id="m-bracket" href="#">Bracket &amp; schedule</a>
+    <a href="#bracket">Bracket</a>
     <a href="#standings">Standings</a>
     <a href="#teams">Teams</a>
     <a href="#info">Tournament info</a>
@@ -220,6 +234,16 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
 </div>
 
 <main>
+
+<section id="bracket">
+  <div class="wrap">
+    <div class="shead">
+      <h2>Bracket</h2>
+      <p id="b-note"></p>
+    </div>
+    <div class="rounds" id="rounds"></div>
+  </div>
+</section>
 
 <section id="standings">
   <div class="wrap">
@@ -247,21 +271,7 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
       <h2>Tournament info</h2>
       <p>Everything in the coaches packet, plus the parking map. Please pass the parking notes on to your families.</p>
     </div>
-    <div class="rain">
-      <div class="k">IF IT RAINS SUNDAY</div>
-      <h3>Sunday games move to No Offseason</h3>
-      <p>If weather takes us off the fields on Sunday, play moves to <b>No Offseason</b>,
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=306+Chase+Drive+Tarentum+PA+15084"
-         target="_blank" rel="noopener">306 Chase Drive, Tarentum, PA 15084</a>.
-      It is an outdoor all-turf facility, so the fields play through weather that would
-      close East End Park.</p>
-      <p class="warn">Turf shoes only at No Offseason. No metal cleats. Please tell your
-      families to pack a second pair of shoes before Sunday, not that morning.</p>
-      <p>The call will be posted here and on Tourney Machine, and the tournament directors
-      will notify coaches directly. Do not head to Tarentum until you hear from us.</p>
-    </div>
-
-    <div class="info">
+        <div class="info">
       <div class="infomap">
         <img src="parking-map.png" alt="Aerial map of East End Park showing the main lot off Meadow St, the smaller Field 2 lot off Chestnut St, and the two fields.">
         <p>Both lots are marked in orange. Enter off Meadow St. Overflow parking is on East O&rsquo;Hara St.</p>
@@ -491,6 +501,26 @@ function renderRaffle(d){
   box.hidden = false;
 }
 
+function renderBracket(d){
+  const b = d.bracket;
+  const host = el('rounds');
+  if(!b || !b.rounds){ host.innerHTML=''; return; }
+  el('b-note').textContent = [b.venue, b.note].filter(Boolean).join(' — ');
+  host.innerHTML = b.rounds.map(r => `
+    <div class="rnd">
+      <h3>${esc(r.label)}</h3>
+      ${r.games.map(g => {
+        const tie = g.as === g.bs;
+        const aw = !tie && g.as > g.bs, bw = !tie && g.bs > g.as;
+        const line = (n,s,win) => `<div class="ln ${win?'w':''} ${tie?'tie':''}">
+            <span>${esc(n)}</span><span class="sc">${s}</span></div>`;
+        return `<div class="gm">
+          <div class="meta">${esc(g.id)} &middot; ${esc(g.field)}${tie?' &middot; TIE':''}</div>
+          ${line(g.a,g.as,aw)}${line(g.b,g.bs,bw)}</div>`;
+      }).join('')}
+    </div>`).join('');
+}
+
 function render(d){
   el('m-dates').textContent   = d.dates;
   el('m-venue').textContent   = d.venue;
@@ -501,7 +531,7 @@ function render(d){
   el('m-updated').textContent = 'Updated ' + u.toLocaleDateString('en-US',
     { month:'short', day:'numeric', year:'numeric' });
   el('m-updated').setAttribute('datetime', d.updated);
-  renderStandings(d); renderTeams(d); renderLeaders(d); renderRaffle(d);
+  renderStandings(d); renderTeams(d); renderLeaders(d); renderRaffle(d); renderBracket(d);
 }
 
 fetch('data.json', {cache:'no-store'})
