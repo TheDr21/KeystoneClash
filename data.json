@@ -2,8 +2,8 @@
   "dates": "September 11–13, 2026",
   "venue": "East End Park, 51 Meadow St, McDonald, PA",
   "contact": "Derek Rocco, Artie Tortorice and Steve LaFever, Tournament Directors",
-  "updated": "2026-09-12",
-  "status": "WEATHER DELAY. Rain stopped bracket play Saturday afternoon. Pool play and seeding are final and shown below. Bracket status and Sunday's plan will be posted here and sent to coaches directly — check Tourney Machine for official game times.",
+  "updated": "2026-09-14",
+  "status": "Tournament complete. Saturday's rain moved Sunday's bracket to No Offseason in Tarentum. Full bracket results, final pool standings and stat leaders are below.",
   "bracketUrl": "https://tourneymachine.com/Public/Results/Division.aspx?IDTournament=h202607031619521870950ff4a05a84e&IDDivision=h20260703163616344456f126a2c3848",
   "divisions": [
     {
@@ -179,5 +179,122 @@
     "raised": 470.0,
     "updated": "2026-09-14T18:10:38+00:00",
     "url": "https://www.zeffy.com/en-US/ticketing/lady-dukes-keystone-clash-tournament-raffle"
+  },
+  "bracket": {
+    "venue": "No Offseason, Tarentum — Sunday, September 13",
+    "note": "Sunday moved indoors to turf after Saturday's rain. Four fields, three rounds.",
+    "rounds": [
+      {
+        "label": "Round 1 — 2:00 PM",
+        "games": [
+          {
+            "id": "B1",
+            "field": "Field 1",
+            "a": "All American Prady",
+            "as": 4,
+            "b": "Outlaws 2033 Valore",
+            "bs": 7
+          },
+          {
+            "id": "B2",
+            "field": "Field 3",
+            "a": "Smash Fastpitch Shaffer",
+            "as": 7,
+            "b": "FP Select Barringer",
+            "bs": 6
+          },
+          {
+            "id": "B3",
+            "field": "Field 5",
+            "a": "Pittsburgh Passion",
+            "as": 17,
+            "b": "Pittsburgh Power Theys",
+            "bs": 3
+          },
+          {
+            "id": "B4",
+            "field": "Field 6",
+            "a": "Lady Dukes WPA 2033",
+            "as": 4,
+            "b": "Pittsburgh Spirit Barber",
+            "bs": 3
+          }
+        ]
+      },
+      {
+        "label": "Round 2 — 4:00 PM",
+        "games": [
+          {
+            "id": "B5",
+            "field": "Field 1",
+            "a": "Outlaws 2033 Valore",
+            "as": 1,
+            "b": "Smash Fastpitch Shaffer",
+            "bs": 6
+          },
+          {
+            "id": "B6",
+            "field": "Field 3",
+            "a": "Pittsburgh Passion",
+            "as": 10,
+            "b": "Lady Dukes WPA 2033",
+            "bs": 6
+          },
+          {
+            "id": "B8",
+            "field": "Field 5",
+            "a": "All American Prady",
+            "as": 9,
+            "b": "FP Select Barringer",
+            "bs": 0
+          },
+          {
+            "id": "B9",
+            "field": "Field 6",
+            "a": "Pittsburgh Power Theys",
+            "as": 6,
+            "b": "Pittsburgh Spirit Barber",
+            "bs": 11
+          }
+        ]
+      },
+      {
+        "label": "Round 3 — 5:45 PM",
+        "games": [
+          {
+            "id": "B7",
+            "field": "Field 1",
+            "a": "Smash Fastpitch Shaffer",
+            "as": 5,
+            "b": "Pittsburgh Passion",
+            "bs": 8
+          },
+          {
+            "id": "B10",
+            "field": "Field 5",
+            "a": "Outlaws 2033 Valore",
+            "as": 3,
+            "b": "Lady Dukes WPA 2033",
+            "bs": 5
+          },
+          {
+            "id": "B11",
+            "field": "Field 6",
+            "a": "All American Prady",
+            "as": 5,
+            "b": "Pittsburgh Spirit Barber",
+            "bs": 3
+          },
+          {
+            "id": "B12",
+            "field": "Field 3",
+            "a": "FP Select Barringer",
+            "as": 2,
+            "b": "Pittsburgh Power Theys",
+            "bs": 2
+          }
+        ]
+      }
+    ]
   }
 }
