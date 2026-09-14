@@ -124,6 +124,10 @@ td.team a.host::after{content:"  host";font-size:.68rem;font-weight:600;color:va
 .champ .t{font-family:"Archivo Black",sans-serif;font-size:clamp(1.6rem,5.5vw,2.6rem);
   line-height:1.05;margin:8px 0 6px;text-transform:uppercase;letter-spacing:-.01em}
 .champ .r{color:#B9C6E6;font-size:.92rem}
+.champ .ru{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+.champ .ru .k2{font-size:.66rem;letter-spacing:.26em;color:#9FB0D8;font-weight:700}
+.champ .ru .t2{font-family:"Archivo Black",sans-serif;font-size:1.15rem;margin-top:4px}
+.champ .ru .r2{color:#B9C6E6;font-size:.82rem;margin-top:2px}
 
 /* ---------- bracket ---------- */
 .rounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px}
@@ -521,6 +525,11 @@ function renderBracket(d){
       <div class="k">CHAMPIONS</div>
       <div class="t">${esc(c.team)}</div>
       <div class="r">${esc(c.record || '')}${c.line ? ' &mdash; ' + esc(c.line) : ''}</div>
+      ${b.runnerUp ? `<div class="ru">
+        <div class="k2">RUNNER-UP</div>
+        <div class="t2">${esc(b.runnerUp.team)}</div>
+        <div class="r2">${esc(b.runnerUp.record || '')}</div>
+      </div>` : ''}
     </div>` : '';
   host.innerHTML = b.rounds.map(r => `
     <div class="rnd">
