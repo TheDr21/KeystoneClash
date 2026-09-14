@@ -117,6 +117,14 @@ td.team a.host::after{content:"  host";font-size:.68rem;font-weight:600;color:va
 .tcard u{display:inline-block;margin-top:9px;font-size:.82rem;color:var(--navy);
          text-decoration:none;font-weight:600;border-bottom:2px solid var(--orange);padding-bottom:1px}
 
+/* ---------- champion ---------- */
+.champ{background:var(--ink);color:#fff;border-radius:5px;padding:26px 22px;margin-top:20px;
+  text-align:center;border-top:6px solid var(--orange)}
+.champ .k{font-size:.72rem;letter-spacing:.3em;color:var(--orange);font-weight:700}
+.champ .t{font-family:"Archivo Black",sans-serif;font-size:clamp(1.6rem,5.5vw,2.6rem);
+  line-height:1.05;margin:8px 0 6px;text-transform:uppercase;letter-spacing:-.01em}
+.champ .r{color:#B9C6E6;font-size:.92rem}
+
 /* ---------- bracket ---------- */
 .rounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px}
 .rnd{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
@@ -241,6 +249,7 @@ footer .crawler{margin-top:14px;font-size:.72rem;letter-spacing:.14em;color:#5A6
       <h2>Bracket</h2>
       <p id="b-note"></p>
     </div>
+    <div id="champ"></div>
     <div class="rounds" id="rounds"></div>
   </div>
 </section>
@@ -506,6 +515,13 @@ function renderBracket(d){
   const host = el('rounds');
   if(!b || !b.rounds){ host.innerHTML=''; return; }
   el('b-note').textContent = [b.venue, b.note].filter(Boolean).join(' — ');
+  const c = b.champion;
+  el('champ').innerHTML = c ? `
+    <div class="champ">
+      <div class="k">CHAMPIONS</div>
+      <div class="t">${esc(c.team)}</div>
+      <div class="r">${esc(c.record || '')}${c.line ? ' &mdash; ' + esc(c.line) : ''}</div>
+    </div>` : '';
   host.innerHTML = b.rounds.map(r => `
     <div class="rnd">
       <h3>${esc(r.label)}</h3>
