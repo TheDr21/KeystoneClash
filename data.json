@@ -97,7 +97,7 @@
         "rbi": 2
       },
       {
-        "player": "B H #00",
+        "player": "Bexley H #00",
         "team": "Smash Fastpitch Shaffer",
         "avg": ".800",
         "ops": "2.233",
@@ -129,7 +129,7 @@
         "rbi": 6
       },
       {
-        "player": "K B #14",
+        "player": "Kaylee B #14",
         "team": "Smash Fastpitch Shaffer",
         "avg": ".500",
         "ops": "1.667",
@@ -139,7 +139,7 @@
     ],
     "pitching": [
       {
-        "player": "H S #2",
+        "player": "Harper S #2",
         "team": "Smash Fastpitch Shaffer",
         "era": "0.00",
         "ip": "4.1",
