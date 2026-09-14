@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keystone Clash 2026 — Full Stats Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101C3D;--navy:#16295E;--orange:#E8632A;--page:#EEF1F7;--card:#fff;
+      --line:#D6DCE9;--muted:#6B7893}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Archivo",system-ui,sans-serif;background:var(--page);color:var(--ink);
+     font-size:16px;line-height:1.5;font-variant-numeric:tabular-nums}
+.wrap{max-width:1000px;margin:0 auto;padding:0 18px}
+a{color:var(--navy)}
+
+.mast{background:var(--navy);color:#fff;padding:28px 0 24px}
+.mast h1{font-family:"Archivo Black",sans-serif;font-size:clamp(1.6rem,6vw,2.5rem);
+  line-height:1;text-transform:uppercase;letter-spacing:-.02em}
+.mast h1 em{font-style:normal;color:var(--orange)}
+.mast p{color:#B9C6E6;margin-top:9px;font-size:.92rem;max-width:60ch}
+.back{display:inline-block;margin-top:14px;color:#fff;font-size:.85rem;font-weight:600;
+  border-bottom:2px solid var(--orange);text-decoration:none;padding-bottom:1px}
+
+.bar{background:#fff;border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:5}
+.tabs{display:flex;gap:8px;margin-bottom:10px}
+.tab{flex:0 0 auto;padding:9px 20px;border:1px solid var(--line);background:#fff;border-radius:4px;
+  font:inherit;font-weight:600;font-size:.92rem;cursor:pointer;color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:3px;-webkit-overflow-scrolling:touch}
+.chip{flex:0 0 auto;padding:6px 13px;border:1px solid var(--line);background:#fff;border-radius:99px;
+  font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--muted);white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--orange);color:#fff;border-color:var(--orange)}
+.opt{margin-top:10px;font-size:.83rem;color:var(--muted);display:flex;align-items:center;gap:7px}
+.opt input{width:16px;height:16px;accent-color:var(--orange)}
+
+section{padding:22px 0 40px}
+.scroll{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:560px}
+th{background:var(--ink);color:#fff;text-align:right;padding:10px 10px;font-size:.72rem;
+  letter-spacing:.07em;font-weight:600;white-space:nowrap;cursor:pointer;user-select:none}
+th:first-child,th:nth-child(2),th:nth-child(3){text-align:left}
+th.on{color:#FFC9AE}
+th .ar{opacity:.55;font-size:.7em}
+td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+td:nth-child(2),td:nth-child(3){text-align:left;white-space:normal}
+td:first-child{text-align:center;width:42px;color:var(--muted);font-size:.82rem}
+tr:last-child td{border-bottom:0}
+tr.top td{background:#FFF6F1}
+tr.top td:first-child{font-family:"Archivo Black",sans-serif;color:var(--orange);font-size:.95rem}
+tr.unq td{color:var(--muted);background:#FAFBFD}
+.pl{font-weight:600}
+.tm{font-size:.8rem;color:var(--muted)}
+.count{font-size:.83rem;color:var(--muted);margin:10px 0 0}
+.legend{font-size:.8rem;color:var(--muted);margin-top:12px;line-height:1.6}
+.legend b{color:var(--ink)}
+footer{background:var(--ink);color:#9FB0D8;padding:24px 0 34px;font-size:.85rem;line-height:1.7}
+footer b{color:#fff}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+@media (max-width:560px){ .mast{padding:22px 0 18px} th,td{padding-left:7px;padding-right:7px} }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <h1>Stats <em>Board</em></h1>
+    <p id="note"></p>
+    <a class="back" href="./">Back to the tournament page</a>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="tabs" role="tablist">
+      <button class="tab" id="t-hit" role="tab" aria-selected="true">Hitting</button>
+      <button class="tab" id="t-pit" role="tab" aria-selected="false">Pitching</button>
+    </div>
+    <div class="chips" id="chips"></div>
+    <label class="opt"><input type="checkbox" id="qonly" checked>
+      <span id="qlabel">Qualified players only</span></label>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="scroll"><table id="tbl"></table></div>
+    <p class="count" id="count"></p>
+    <p class="legend" id="legend"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>Keystone Clash 2026</b> &mdash; hosted by the Lady Dukes Softball Club.<br>
+    Tap any column heading to sort. Every stat line comes from that team's own scorebook.
+  </div>
+</footer>
+
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ipNum = s => { const [a,b] = String(s).split('.'); return +a + (+b||0)/3; };
+
+let DATA = null, view = 'hitting', team = 'ALL', qonly = true;
+
+const COLS = {
+  hitting: [
+    {k:'player', l:'Player',  t:'s'},
+    {k:'team',   l:'Team',    t:'s'},
+    {k:'avg',    l:'AVG',     t:'n', def:'desc'},
+    {k:'ops',    l:'OPS',     t:'n', def:'desc'},
+    {k:'h',      l:'H',       t:'n', def:'desc'},
+    {k:'rbi',    l:'RBI',     t:'n', def:'desc'},
+    {k:'ab',     l:'AB',      t:'n', def:'desc'},
+  ],
+  pitching: [
+    {k:'player', l:'Player',  t:'s'},
+    {k:'team',   l:'Team',    t:'s'},
+    {k:'era',    l:'ERA',     t:'n', def:'asc'},
+    {k:'ip',     l:'IP',      t:'ip', def:'desc'},
+    {k:'k',      l:'K',       t:'n', def:'desc'},
+  ]
+};
+let sortKey = 'ops', sortDir = 'desc';
+
+function val(row, c){
+  if(c.t === 'ip') return ipNum(row[c.k]);
+  if(c.t === 'n')  return parseFloat(row[c.k]);
+  return String(row[c.k]).toLowerCase();
+}
+
+function rows(){
+  let r = DATA[view].filter(x => team === 'ALL' || x.team === team);
+  if(qonly) r = r.filter(x => x.q);
+  const c = COLS[view].find(c => c.k === sortKey) || COLS[view][2];
+  const dir = sortDir === 'asc' ? 1 : -1;
+  return r.sort((a,b) => {
+    const A = val(a,c), B = val(b,c);
+    if(A < B) return -1*dir;
+    if(A > B) return  1*dir;
+    return String(a.player).localeCompare(String(b.player));
+  });
+}
+
+function draw(){
+  const cols = COLS[view], list = rows();
+  const head = '<tr><th></th>' + cols.map(c =>
+    `<th data-k="${c.k}" class="${c.k===sortKey?'on':''}">${esc(c.l)}` +
+    (c.k===sortKey ? ` <span class="ar">${sortDir==='asc'?'▲':'▼'}</span>` : '') +
+    '</th>').join('') + '</tr>';
+
+  const body = list.map((r,i) => {
+    const cells = cols.map(c => {
+      if(c.k === 'player') return `<td class="pl">${esc(r.player)}</td>`;
+      if(c.k === 'team')   return `<td class="tm">${esc(r.team)}</td>`;
+      return `<td>${esc(r[c.k])}</td>`;
+    }).join('');
+    const cls = !r.q ? 'unq' : (i < 3 ? 'top' : '');
+    return `<tr class="${cls}"><td>${i+1}</td>${cells}</tr>`;
+  }).join('');
+
+  document.getElementById('tbl').innerHTML = head + body;
+  document.getElementById('count').textContent =
+    `${list.length} ${view === 'hitting' ? 'hitter' : 'pitcher'}${list.length===1?'':'s'} shown` +
+    (team === 'ALL' ? '' : ` — ${team}`);
+
+  document.querySelectorAll('#tbl th[data-k]').forEach(th => {
+    th.onclick = () => {
+      const k = th.dataset.k;
+      const c = COLS[view].find(c => c.k === k);
+      if(sortKey === k) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      else { sortKey = k; sortDir = c.def || 'asc'; }
+      draw();
+    };
+  });
+}
+
+function setView(v){
+  view = v;
+  document.getElementById('t-hit').setAttribute('aria-selected', v === 'hitting');
+  document.getElementById('t-pit').setAttribute('aria-selected', v === 'pitching');
+  sortKey = v === 'hitting' ? 'ops' : 'era';
+  sortDir = v === 'hitting' ? 'desc' : 'asc';
+  document.getElementById('qlabel').textContent = v === 'hitting'
+    ? `Qualified only (${DATA.minAB}+ AB)` : `Qualified only (${DATA.minIP}+ IP)`;
+  document.getElementById('legend').innerHTML = v === 'hitting'
+    ? `<b>Qualifying:</b> ${DATA.minAB} or more at-bats across the tournament. Players below the line are greyed out and only appear when the filter is off.`
+    : `<b>Qualifying:</b> ${DATA.minIP} or more innings pitched. ERA is earned runs per seven innings. Players below the line are greyed out and only appear when the filter is off.`;
+  draw();
+}
+
+fetch('stats.json?t=' + Date.now(), {cache:'no-store'})
+  .then(r => r.json())
+  .then(d => {
+    DATA = d;
+    document.getElementById('note').textContent = d.note;
+    const teams = [...new Set([...d.hitting, ...d.pitching].map(x => x.team))].sort();
+    document.getElementById('chips').innerHTML =
+      [['ALL','All teams'], ...teams.map(t => [t,t])].map(([v,l]) =>
+        `<button class="chip" data-t="${esc(v)}" aria-pressed="${v==='ALL'}">${esc(l)}</button>`
+      ).join('');
+    document.querySelectorAll('.chip').forEach(b => b.onclick = () => {
+      team = b.dataset.t;
+      document.querySelectorAll('.chip').forEach(x =>
+        x.setAttribute('aria-pressed', x === b));
+      draw();
+    });
+    document.getElementById('t-hit').onclick = () => setView('hitting');
+    document.getElementById('t-pit').onclick = () => setView('pitching');
+    document.getElementById('qonly').onchange = e => { qonly = e.target.checked; draw(); };
+    setView('hitting');
+  })
+  .catch(() => {
+    document.getElementById('tbl').innerHTML =
+      '<tr><td style="text-align:center;padding:30px;color:#6B7893">Could not load stats. Refresh in a moment.</td></tr>';
+  });
+</script>
+</body>
+</html>
