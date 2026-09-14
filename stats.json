@@ -1,0 +1,643 @@
+{
+  "note": "Full tournament, pool and bracket. Every line taken from that team's own scorebook.",
+  "minAB": 8,
+  "minIP": 5.0,
+  "hitting": [
+    {
+      "player": "Lily M #15",
+      "team": "Pittsburgh Passion",
+      "avg": ".722",
+      "ops": "1.848",
+      "h": 13,
+      "rbi": 8,
+      "ab": 18,
+      "q": true
+    },
+    {
+      "player": "Kaylee B #14",
+      "team": "Smash Fastpitch Shaffer",
+      "avg": ".714",
+      "ops": "1.846",
+      "h": 5,
+      "rbi": 3,
+      "ab": 7,
+      "q": false
+    },
+    {
+      "player": "Kacey B #5",
+      "team": "Pittsburgh Passion",
+      "avg": ".700",
+      "ops": "1.686",
+      "h": 7,
+      "rbi": 3,
+      "ab": 10,
+      "q": true
+    },
+    {
+      "player": "Elliette M #56",
+      "team": "Pittsburgh Passion",
+      "avg": ".667",
+      "ops": "1.655",
+      "h": 10,
+      "rbi": 10,
+      "ab": 15,
+      "q": true
+    },
+    {
+      "player": "A Glomb #1",
+      "team": "Lady Dukes WPA 2033",
+      "avg": ".500",
+      "ops": "1.533",
+      "h": 7,
+      "rbi": 4,
+      "ab": 14,
+      "q": true
+    },
+    {
+      "player": "Kendal C #00",
+      "team": "Outlaws 2033 Valore",
+      "avg": ".625",
+      "ops": "1.500",
+      "h": 5,
+      "rbi": 1,
+      "ab": 8,
+      "q": true
+    },
+    {
+      "player": "Kendall C #18",
+      "team": "All American Prady",
+      "avg": ".500",
+      "ops": "1.443",
+      "h": 7,
+      "rbi": 3,
+      "ab": 14,
+      "q": true
+    },
+    {
+      "player": "A Dantry #41",
+      "team": "Lady Dukes WPA 2033",
+      "avg": ".600",
+      "ops": "1.425",
+      "h": 9,
+      "rbi": 7,
+      "ab": 15,
+      "q": true
+    },
+    {
+      "player": "Emily M #10",
+      "team": "Pittsburgh Passion",
+      "avg": ".600",
+      "ops": "1.417",
+      "h": 9,
+      "rbi": 5,
+      "ab": 15,
+      "q": true
+    },
+    {
+      "player": "Avry G #37",
+      "team": "All American Prady",
+      "avg": ".417",
+      "ops": "1.400",
+      "h": 5,
+      "rbi": 7,
+      "ab": 12,
+      "q": true
+    },
+    {
+      "player": "Isabella B #13",
+      "team": "Outlaws 2033 Valore",
+      "avg": ".500",
+      "ops": "1.375",
+      "h": 5,
+      "rbi": 3,
+      "ab": 10,
+      "q": true
+    },
+    {
+      "player": "Harley V #1",
+      "team": "Smash Fastpitch Shaffer",
+      "avg": ".500",
+      "ops": "1.367",
+      "h": 3,
+      "rbi": 4,
+      "ab": 6,
+      "q": false
+    },
+    {
+      "player": "Sydney C #5",
+      "team": "Pittsburgh Power Theys",
+      "avg": ".500",
+      "ops": "1.300",
+      "h": 5,
+      "rbi": 0,
+      "ab": 10,
+      "q": true
+    },
+    {
+      "player": "Karmen H #78",
+      "team": "Smash Fastpitch Shaffer",
+      "avg": ".571",
+      "ops": "1.299",
+      "h": 4,
+      "rbi": 2,
+      "ab": 7,
+      "q": false
+    },
+    {
+      "player": "M Jackson #22",
+      "team": "Lady Dukes WPA 2033",
+      "avg": ".500",
+      "ops": "1.286",
+      "h": 7,
+      "rbi": 5,
+      "ab": 14,
+      "q": true
+    },
+    {
+      "player": "B Schmidt #10",
+      "team": "Lady Dukes WPA 2033",
+      "avg": ".545",
+      "ops": "1.279",
+      "h": 6,
+      "rbi": 6,
+      "ab": 11,
+      "q": true
+    },
+    {
+      "player": "Haven M #1",
+      "team": "All American Prady",
+      "avg": ".455",
+      "ops": "1.245",
+      "h": 5,
+      "rbi": 10,
+      "ab": 11,
+      "q": true
+    },
+    {
+      "player": "Blake R #12",
+      "team": "All American Prady",
+      "avg": ".500",
+      "ops": "1.212",
+      "h": 7,
+      "rbi": 1,
+      "ab": 14,
+      "q": true
+    },
+    {
+      "player": "Bexley H #00",
+      "team": "Smash Fastpitch Shaffer",
+      "avg": ".400",
+      "ops": "1.200",
+      "h": 4,
+      "rbi": 7,
+      "ab": 10,
+      "q": true
+    },
+    {
+      "player": "Keira N #1",
+      "team": "FP Select Barringer",
+      "avg": ".444",
+      "ops": "1.194",
+      "h": 4,
+      "rbi": 2,
+      "ab": 9,
+      "q": true
+    },
+    {
+      "player": "Amelia H #6",
+      "team": "Pittsburgh Passion",
+      "avg": ".333",
+      "ops": "1.138",
+      "h": 4,
+      "rbi": 3,
+      "ab": 12,
+      "q": true
+    },
+    {
+      "player": "Aubrey M #22",
+      "team": "Pittsburgh Passion",
+      "avg": ".444",
+      "ops": "1.111",
+      "h": 8,
+      "rbi": 9,
+      "ab": 18,
+      "q": true
+    },
+    {
+      "player": "Avery T #7",
+      "team": "Pittsburgh Spirit Barber",
+      "avg": ".455",
+      "ops": "1.106",
+      "h": 5,
+      "rbi": 6,
+      "ab": 11,
+      "q": true
+    },
+    {
+      "player": "Ryleigh T #8",
+      "team": "Smash Fastpitch Shaffer",
+      "avg": ".429",
+      "ops": "1.029",
+      "h": 3,
+      "rbi": 4,
+      "ab": 7,
+      "q": false
+    },
+    {
+      "player": "Preslie E #96",
+      "team": "All American Prady",
+      "avg": ".364",
+      "ops": "0.982",
+      "h": 4,
+      "rbi": 6,
+      "ab": 11,
+      "q": true
+    },
+    {
+      "player": "Violet T #18",
+      "team": "Pittsburgh Power Theys",
+      "avg": ".444",
+      "ops": "0.944",
+      "h": 4,
+      "rbi": 2,
+      "ab": 9,
+      "q": true
+    },
+    {
+      "player": "S Chimino #4",
+      "team": "Lady Dukes WPA 2033",
+      "avg": ".444",
+      "ops": "0.889",
+      "h": 4,
+      "rbi": 0,
+      "ab": 9,
+      "q": true
+    },
+    {
+      "player": "Presley S #95",
+      "team": "Pittsburgh Power Theys",
+      "avg": ".444",
+      "ops": "0.889",
+      "h": 4,
+      "rbi": 1,
+      "ab": 9,
+      "q": true
+    },
+    {
+      "player": "Sophia M #10",
+      "team": "Outlaws 2033 Valore",
+      "avg": ".400",
+      "ops": "0.878",
+      "h": 6,
+      "rbi": 0,
+      "ab": 15,
+      "q": true
+    },
+    {
+      "player": "Harlowe F #22",
+      "team": "All American Prady",
+      "avg": ".333",
+      "ops": "0.885",
+      "h": 4,
+      "rbi": 2,
+      "ab": 12,
+      "q": true
+    },
+    {
+      "player": "Ellie V #48",
+      "team": "Outlaws 2033 Valore",
+      "avg": ".375",
+      "ops": "0.865",
+      "h": 4,
+      "rbi": 3,
+      "ab": 11,
+      "q": true
+    },
+    {
+      "player": "Reese H #40",
+      "team": "FP Select Barringer",
+      "avg": ".286",
+      "ops": "0.810",
+      "h": 2,
+      "rbi": 5,
+      "ab": 7,
+      "q": false
+    },
+    {
+      "player": "Avery N #5",
+      "team": "Pittsburgh Spirit Barber",
+      "avg": ".333",
+      "ops": "0.750",
+      "h": 3,
+      "rbi": 1,
+      "ab": 9,
+      "q": true
+    },
+    {
+      "player": "Juliet K #18",
+      "team": "Pittsburgh Spirit Barber",
+      "avg": ".222",
+      "ops": "0.707",
+      "h": 2,
+      "rbi": 2,
+      "ab": 9,
+      "q": true
+    },
+    {
+      "player": "Raelyn S #6",
+      "team": "Pittsburgh Power Theys",
+      "avg": ".200",
+      "ops": "0.629",
+      "h": 1,
+      "rbi": 0,
+      "ab": 5,
+      "q": false
+    },
+    {
+      "player": "Addison T #3",
+      "team": "FP Select Barringer",
+      "avg": ".231",
+      "ops": "0.627",
+      "h": 3,
+      "rbi": 0,
+      "ab": 13,
+      "q": true
+    },
+    {
+      "player": "Maizy M #9",
+      "team": "Pittsburgh Spirit Barber",
+      "avg": ".250",
+      "ops": "0.583",
+      "h": 4,
+      "rbi": 3,
+      "ab": 16,
+      "q": true
+    },
+    {
+      "player": "Carmella W #11",
+      "team": "FP Select Barringer",
+      "avg": ".250",
+      "ops": "0.583",
+      "h": 3,
+      "rbi": 1,
+      "ab": 12,
+      "q": true
+    },
+    {
+      "player": "Zoe M #6",
+      "team": "Outlaws 2033 Valore",
+      "avg": ".273",
+      "ops": "0.545",
+      "h": 3,
+      "rbi": 1,
+      "ab": 11,
+      "q": true
+    },
+    {
+      "player": "Savvy M #2",
+      "team": "FP Select Barringer",
+      "avg": ".222",
+      "ops": "0.544",
+      "h": 2,
+      "rbi": 1,
+      "ab": 9,
+      "q": true
+    },
+    {
+      "player": "Katie D #4",
+      "team": "Pittsburgh Spirit Barber",
+      "avg": ".167",
+      "ops": "0.333",
+      "h": 2,
+      "rbi": 0,
+      "ab": 12,
+      "q": true
+    }
+  ],
+  "pitching": [
+    {
+      "player": "Avry G #37",
+      "team": "All American Prady",
+      "era": "0.00",
+      "ip": "6.0",
+      "k": 10,
+      "q": true
+    },
+    {
+      "player": "M Porter #14",
+      "team": "Lady Dukes WPA 2033",
+      "era": "0.00",
+      "ip": "6.0",
+      "k": 2,
+      "q": true
+    },
+    {
+      "player": "Avery T #7",
+      "team": "Pittsburgh Spirit Barber",
+      "era": "0.00",
+      "ip": "6.0",
+      "k": 2,
+      "q": true
+    },
+    {
+      "player": "Brooke K #20",
+      "team": "All American Prady",
+      "era": "0.00",
+      "ip": "5.0",
+      "k": 3,
+      "q": true
+    },
+    {
+      "player": "Paityn F #10",
+      "team": "Smash Fastpitch Shaffer",
+      "era": "0.00",
+      "ip": "2.0",
+      "k": 1,
+      "q": false
+    },
+    {
+      "player": "A Glomb #1",
+      "team": "Lady Dukes WPA 2033",
+      "era": "1.00",
+      "ip": "7.0",
+      "k": 7,
+      "q": true
+    },
+    {
+      "player": "Bexley H #00",
+      "team": "Smash Fastpitch Shaffer",
+      "era": "1.40",
+      "ip": "5.0",
+      "k": 2,
+      "q": true
+    },
+    {
+      "player": "Harlowe F #22",
+      "team": "All American Prady",
+      "era": "1.75",
+      "ip": "8.0",
+      "k": 12,
+      "q": true
+    },
+    {
+      "player": "Harper S #2",
+      "team": "Smash Fastpitch Shaffer",
+      "era": "1.91",
+      "ip": "7.1",
+      "k": 3,
+      "q": true
+    },
+    {
+      "player": "Aubrey M #22",
+      "team": "Pittsburgh Passion",
+      "era": "2.10",
+      "ip": "10.0",
+      "k": 6,
+      "q": true
+    },
+    {
+      "player": "L Bruckner #12",
+      "team": "Lady Dukes WPA 2033",
+      "era": "3.32",
+      "ip": "6.1",
+      "k": 13,
+      "q": true
+    },
+    {
+      "player": "KJ T #21",
+      "team": "Smash Fastpitch Shaffer",
+      "era": "3.62",
+      "ip": "9.2",
+      "k": 5,
+      "q": true
+    },
+    {
+      "player": "Addie B #8",
+      "team": "Pittsburgh Passion",
+      "era": "4.20",
+      "ip": "10.0",
+      "k": 11,
+      "q": true
+    },
+    {
+      "player": "Emery W #23",
+      "team": "FP Select Barringer",
+      "era": "4.67",
+      "ip": "9.0",
+      "k": 3,
+      "q": true
+    },
+    {
+      "player": "Zoe M #6",
+      "team": "Outlaws 2033 Valore",
+      "era": "5.32",
+      "ip": "11.2",
+      "k": 19,
+      "q": true
+    },
+    {
+      "player": "Sammi C #12",
+      "team": "Pittsburgh Spirit Barber",
+      "era": "5.44",
+      "ip": "14.0",
+      "k": 6,
+      "q": true
+    },
+    {
+      "player": "Sydney C #5",
+      "team": "Pittsburgh Power Theys",
+      "era": "6.30",
+      "ip": "6.2",
+      "k": 2,
+      "q": true
+    },
+    {
+      "player": "Kylee S #14",
+      "team": "Outlaws 2033 Valore",
+      "era": "8.05",
+      "ip": "9.1",
+      "k": 6,
+      "q": true
+    },
+    {
+      "player": "Brooklynn R #11",
+      "team": "Pittsburgh Power Theys",
+      "era": "8.40",
+      "ip": "13.1",
+      "k": 9,
+      "q": true
+    },
+    {
+      "player": "Liv L #21",
+      "team": "FP Select Barringer",
+      "era": "9.19",
+      "ip": "4.0",
+      "k": 4,
+      "q": false
+    },
+    {
+      "player": "Savvy M #2",
+      "team": "FP Select Barringer",
+      "era": "9.33",
+      "ip": "3.0",
+      "k": 1,
+      "q": false
+    },
+    {
+      "player": "A Dantry #41",
+      "team": "Lady Dukes WPA 2033",
+      "era": "9.45",
+      "ip": "6.2",
+      "k": 8,
+      "q": true
+    },
+    {
+      "player": "Maizy M #9",
+      "team": "Pittsburgh Spirit Barber",
+      "era": "9.94",
+      "ip": "5.1",
+      "k": 2,
+      "q": true
+    },
+    {
+      "player": "Gizelle R #00",
+      "team": "FP Select Barringer",
+      "era": "10.50",
+      "ip": "9.0",
+      "k": 1,
+      "q": true
+    },
+    {
+      "player": "Haven M #1",
+      "team": "All American Prady",
+      "era": "10.50",
+      "ip": "2.2",
+      "k": 1,
+      "q": false
+    },
+    {
+      "player": "Elliot S #27",
+      "team": "Pittsburgh Spirit Barber",
+      "era": "12.25",
+      "ip": "5.2",
+      "k": 1,
+      "q": true
+    },
+    {
+      "player": "Gretta Y #83",
+      "team": "Outlaws 2033 Valore",
+      "era": "15.75",
+      "ip": "5.1",
+      "k": 5,
+      "q": true
+    },
+    {
+      "player": "Violet T #18",
+      "team": "Pittsburgh Power Theys",
+      "era": "54.60",
+      "ip": "1.2",
+      "k": 1,
+      "q": false
+    }
+  ]
+}
