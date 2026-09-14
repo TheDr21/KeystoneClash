@@ -3,7 +3,7 @@
   "venue": "East End Park, 51 Meadow St, McDonald, PA",
   "contact": "Derek Rocco, Artie Tortorice and Steve LaFever, Tournament Directors",
   "updated": "2026-09-14",
-  "status": "Tournament complete. Saturday's rain moved Sunday's bracket to No Offseason in Tarentum. Full bracket results, final pool standings and stat leaders are below.",
+  "status": "Tournament complete. Pittsburgh Passion are your 2026 Keystone Clash champions, undefeated at 5-0. Sunday's bracket was played at No Offseason in Tarentum after Saturday's rain.",
   "bracketUrl": "https://tourneymachine.com/Public/Results/Division.aspx?IDTournament=h202607031619521870950ff4a05a84e&IDDivision=h20260703163616344456f126a2c3848",
   "divisions": [
     {
@@ -295,6 +295,11 @@
           }
         ]
       }
-    ]
+    ],
+    "champion": {
+      "team": "Pittsburgh Passion",
+      "record": "3-0 in bracket play, 5-0 overall",
+      "line": "Undefeated across the whole weekend."
+    }
   }
 }
