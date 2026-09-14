@@ -89,89 +89,89 @@
   "leaders": {
     "hitting": [
       {
-        "player": "Kacey B #5",
+        "player": "Lily M #15",
         "team": "Pittsburgh Passion",
-        "avg": "1.000",
-        "ops": "2.500",
-        "h": 4,
-        "rbi": 2
+        "avg": ".722",
+        "ops": "1.848",
+        "h": 13,
+        "rbi": 8
       },
       {
-        "player": "Bexley H #00",
-        "team": "Smash Fastpitch Shaffer",
-        "avg": ".800",
-        "ops": "2.233",
-        "h": 4,
-        "rbi": 4
+        "player": "Kacey B #5",
+        "team": "Pittsburgh Passion",
+        "avg": ".700",
+        "ops": "1.686",
+        "h": 7,
+        "rbi": 3
       },
       {
         "player": "Elliette M #56",
         "team": "Pittsburgh Passion",
         "avg": ".667",
-        "ops": "2.048",
-        "h": 4,
-        "rbi": 5
+        "ops": "1.655",
+        "h": 10,
+        "rbi": 10
       },
       {
-        "player": "Preslie E #96",
-        "team": "All American Prady",
-        "avg": ".600",
-        "ops": "1.800",
-        "h": 3,
-        "rbi": 6
-      },
-      {
-        "player": "Haven M #1",
-        "team": "All American Prady",
-        "avg": ".600",
-        "ops": "1.667",
-        "h": 3,
-        "rbi": 6
-      },
-      {
-        "player": "Kaylee B #14",
-        "team": "Smash Fastpitch Shaffer",
+        "player": "A Glomb #1",
+        "team": "Lady Dukes WPA 2033",
         "avg": ".500",
-        "ops": "1.667",
-        "h": 2,
-        "rbi": 2
+        "ops": "1.533",
+        "h": 7,
+        "rbi": 4
+      },
+      {
+        "player": "Kendal C #00",
+        "team": "Outlaws 2033 Valore",
+        "avg": ".625",
+        "ops": "1.500",
+        "h": 5,
+        "rbi": 1
+      },
+      {
+        "player": "Kendall C #18",
+        "team": "All American Prady",
+        "avg": ".500",
+        "ops": "1.443",
+        "h": 7,
+        "rbi": 3
       }
     ],
     "pitching": [
       {
-        "player": "Harper S #2",
-        "team": "Smash Fastpitch Shaffer",
-        "era": "0.00",
-        "ip": "4.1",
-        "k": 2
-      },
-      {
-        "player": "L Bruckner #12",
-        "team": "Lady Dukes WPA 2033",
-        "era": "0.00",
-        "ip": "4.0",
-        "k": 10
-      },
-      {
-        "player": "Avery T #7",
-        "team": "Pittsburgh Spirit Barber",
-        "era": "0.00",
-        "ip": "4.0",
-        "k": 2
-      },
-      {
         "player": "Avry G #37",
         "team": "All American Prady",
         "era": "0.00",
-        "ip": "3.0",
-        "k": 5
+        "ip": "6.0",
+        "k": 10
       },
       {
         "player": "M Porter #14",
         "team": "Lady Dukes WPA 2033",
         "era": "0.00",
-        "ip": "3.0",
-        "k": 1
+        "ip": "6.0",
+        "k": 2
+      },
+      {
+        "player": "Avery T #7",
+        "team": "Pittsburgh Spirit Barber",
+        "era": "0.00",
+        "ip": "6.0",
+        "k": 2
+      },
+      {
+        "player": "Brooke K #20",
+        "team": "All American Prady",
+        "era": "0.00",
+        "ip": "5.0",
+        "k": 3
+      },
+      {
+        "player": "A Glomb #1",
+        "team": "Lady Dukes WPA 2033",
+        "era": "1.00",
+        "ip": "7.0",
+        "k": 7
       }
     ]
   },
