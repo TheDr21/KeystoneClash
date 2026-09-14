@@ -1,5 +1,5 @@
 {
-  "note": "Full tournament, pool and bracket. Every line taken from that team's own scorebook.",
+  "note": "Full tournament, pool and bracket. Every line taken from that team's own scorebook. This board carries each team's main contributors, not every player who appeared.",
   "minAB": 8,
   "minIP": 5.0,
   "hitting": [
@@ -127,10 +127,10 @@
       "player": "Sydney C #5",
       "team": "Pittsburgh Power Theys",
       "avg": ".500",
-      "ops": "1.300",
-      "h": 5,
+      "ops": "1.250",
+      "h": 6,
       "rbi": 0,
-      "ab": 10,
+      "ab": 12,
       "q": true
     },
     {
@@ -256,11 +256,11 @@
     {
       "player": "Violet T #18",
       "team": "Pittsburgh Power Theys",
-      "avg": ".444",
-      "ops": "0.944",
-      "h": 4,
-      "rbi": 2,
-      "ab": 9,
+      "avg": ".455",
+      "ops": "1.045",
+      "h": 5,
+      "rbi": 3,
+      "ab": 11,
       "q": true
     },
     {
@@ -276,11 +276,11 @@
     {
       "player": "Presley S #95",
       "team": "Pittsburgh Power Theys",
-      "avg": ".444",
-      "ops": "0.889",
-      "h": 4,
-      "rbi": 1,
-      "ab": 9,
+      "avg": ".500",
+      "ops": "1.000",
+      "h": 5,
+      "rbi": 2,
+      "ab": 10,
       "q": true
     },
     {
@@ -346,11 +346,11 @@
     {
       "player": "Raelyn S #6",
       "team": "Pittsburgh Power Theys",
-      "avg": ".200",
-      "ops": "0.629",
+      "avg": ".167",
+      "ops": ".542",
       "h": 1,
       "rbi": 0,
-      "ab": 5,
+      "ab": 6,
       "q": false
     },
     {
@@ -411,6 +411,36 @@
       "h": 2,
       "rbi": 0,
       "ab": 12,
+      "q": true
+    },
+    {
+      "player": "Brooklynn R #11",
+      "team": "Pittsburgh Power Theys",
+      "avg": ".083",
+      "ops": ".167",
+      "h": 1,
+      "rbi": 2,
+      "ab": 12,
+      "q": true
+    },
+    {
+      "player": "Ellie S #13",
+      "team": "Pittsburgh Power Theys",
+      "avg": ".083",
+      "ops": ".242",
+      "h": 1,
+      "rbi": 2,
+      "ab": 12,
+      "q": true
+    },
+    {
+      "player": "Gabby T #24",
+      "team": "Pittsburgh Power Theys",
+      "avg": ".000",
+      "ops": ".273",
+      "h": 0,
+      "rbi": 0,
+      "ab": 8,
       "q": true
     }
   ],
